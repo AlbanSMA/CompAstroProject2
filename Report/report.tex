@@ -1,0 +1,116 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{graphicx}
+\graphicspath{{C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//}}
+
+\usepackage[backend = biber, 
+            style=apa, 
+            bibstyle=apa,
+            pluralothers=true,
+            hyperref=false,
+            backref=true,
+            backrefstyle=two
+            ]{biblatex}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks, linkcolor={blue}, citecolor={blue}, urlcolor={blue}}
+
+\DeclareCiteCommand{\citedatelink}
+  {\usebibmacro{prenote}}
+  {\printtext[bibhyperref]{\printdate}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\usepackage{geometry}
+\geometry{tmargin = 80pt, 
+          rmargin = 80pt, 
+          lmargin = 80pt, 
+          bmargin = 80pt}
+
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{wrapfig}
+\usepackage[font=small]{caption}
+\usepackage{multirow}
+
+\bibliography{ref.bib}
+
+\title{Set of Exercises}
+\author{Anvel (Marguerite) de Sainte Marie d'Agneaux}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\subsection{Exercise 1}
+% derive the explicit and implicit formulae for y(t) by Taylor explanding y(t) around t_0 and t_1
+
+\subsection{Exercise 2}
+see Code/Exercises/Exercise2.py for the Code
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width = 1\textwidth]{Introduction//ex2_explicit_Euler.pdf}
+    \caption{Figure showing the function $\frac{dy}{dt}=-y$ analysed numerically using the forward, or explicit Euler method with three different time steps. The upper pannel is the function and the lower pannel, its slope.}
+    \label{fig:ex2_explicitEuler}
+\end{figure}
+%fill in caption
+%make 3 plots w/ Dt = 1,2,3, for explicit Euler, describe how solutions vary
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width = 1\textwidth]{Introduction//ex2_implicit_Euler.pdf}
+    \caption{Figure showing the function $\frac{dy}{dt}=-y$, $y(0)=1$, analysed numerically using the backward, or implicit Euler method and the Newton-Raphson method, with three different time steps. The upper pannel is the function and the lower pannel, its slope. The errorbars are shown in light green.}
+    \label{fig:ex2_implicitEuler}
+\end{figure}
+%fill in caption
+%make 3 plots w/ Dt = 1,2,3, for implicit EUler, describe how solutions vary
+%mention that the error depends a lot on the initial error
+
+\subsection{Exercise 3}
+Reusing the code from Exercise II, plus the code in Code/Exercises/Exercise3.py
+
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[width = 1\textwidth]{Introduction//ex3_implicitEuler.pdf}
+    \caption{Figure showing the function $\frac{dy}{dt}=\frac{1}{(y^2 +1)}$, $y(0)=1$, analysed numerically using the backward, or implicit Euler method and the Newton-Raphson method, with three different time steps. The upper pannel is the function and the lower pannel, its slope. The errorbars shown in light green are the relative errors from one time step to the next.}
+    \label{fig:ex3_implicitEuler}
+\end{figure}
+
+%compare the accuracy of the three different time steps
+
+\subsection{Exercise 4}
+%discuss how to implement a centred derivative
+%create large step with other method, get middle, get middle, get middle etc...
+
+\section{Nuclear Reaction Networks}
+\subsection{Exercise 5}
+\textbf{Reaction 8 :} $$^1_1p +\hspace{1pt}^1_1p \rightarrow \hspace{1pt}^2_1d$$
+It is missing two particles : a positron for the charge, as we have two positive charges on one size and only one on the other side. This however creates an imbalance in lepton number, and so we must add a particle without charge : an electron neutrino. The relation becomes: $$^1_1p +\hspace{1pt}^1_1p \rightarrow\hspace{1pt} ^2_1d + e^+ + \nu_e.$$
+
+\noindent \textbf{Reaction 9} : $$^1_1p +\hspace{1pt} ^7_3Li \rightarrow 2\hspace{1pt}^4_2He$$
+This equation is mostly balanced : there are 8 nucleons and 4 charges on both sides, but it is missing a lepton on the right hand side. The relation becomes : $$^1_1p +\hspace{1pt} ^7_3Li \rightarrow 2\hspace{1pt}^4_2He +\nu_e$$
+
+\noindent \textbf{Reaction 12} : $$3\hspace{1pt}^4_2He\rightarrow \hspace{1pt}_6^{12}C$$
+This reaction is already balanced : there are 12 nucleons, 6 charges and no leptons on both sides.
+
+\subsection{Exercise 6}
+\begin{equation}
+    \begin{split}
+        \frac{dn_p}{dt} &= \\
+        \frac{dn_H}{dt} &= \\
+        \frac{dn_{He}}{dt} &= \\
+    \end{split}
+\end{equation}
+
+%see SN course here
+
+\subsection{Exercise 7}
+a. There are 4 types of particles, and so 4 equations are needed to describe the system.
+
+\noindent b. %what do you mean!!!
+
+
+\noindent c. %what do you mean!!!
+
+\end{document}
