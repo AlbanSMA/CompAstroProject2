@@ -182,7 +182,7 @@ def df_dy2(*args):
 #Initialise
 y_0 = 1
 t_0 = 0
-err_0 = 0.001            #declare an initial error
+err_0 = 0.1            #declare an initial error
 f_0 = f2(y_0)
 
 #parameters
@@ -191,7 +191,20 @@ steps = 10
 #prepare plot:
 fig, (ax1, ax2) = plt.subplots(2,1)
 
-for Dt in (1,2,3):
+Dt = 0.5
+lsty_exp, lstf_exp, lstt_exp, lsterr_exp = run_explicitEuler(df_dy2, y_0, t_0, err_0, f2, Dt, steps)
+
+# plot y VS t
+ax1.scatter(lstt_exp/Dt, lsty_exp, marker = "+", color = "black", linewidth = 0.5)
+ax1.plot(lstt_exp/Dt, lsty_exp, label=f"time step = {Dt}")
+
+# Plot the error
+ax1.errorbar(lstt_exp/Dt, lsty_exp, abs(lsterr_exp), fmt = "None", color = "lightgreen", elinewidth = 3, capsize = 3)
+
+#Plot the slope
+ax2.plot(lstt_exp/Dt, lstf_exp, label = f"time step = {Dt}")
+
+for Dt in (1,2):
     lsty_exp, lstf_exp, lstt_exp, lsterr_exp = run_explicitEuler(df_dy2, y_0, t_0, err_0, f2, Dt, steps)
 
     # plot y VS t
@@ -199,7 +212,7 @@ for Dt in (1,2,3):
     ax1.plot(lstt_exp/Dt, lsty_exp, label=f"time step = {Dt}")
 
     # Plot the error
-    ax1.errorbar(lstt_exp/Dt, lsty_exp, abs(lsterr_exp), fmt = "None", color = "lightgreen", elinewidth = 3, capsize = 3)
+    ax1.errorbar(lstt_exp/Dt, lsty_exp, abs(lsterr_exp), fmt = "None", color = "lightgreen", elinewidth = 1, capsize = 3)
 
     #Plot the slope
     ax2.plot(lstt_exp/Dt, lstf_exp, label = f"time step = {Dt}")
@@ -216,9 +229,22 @@ ax2.legend()
 ax2.grid(alpha=0.5)
 fig.savefig(imagepath+"ex2_explicit_Euler.pdf", dpi=300)
 
+#Plot Dt = 3 on a separate plot to make it more visible
+Dt = 3
+lsty_exp, lstf_exp, lstt_exp, lsterr_exp = run_explicitEuler(df_dy2, y_0, t_0, err_0, f2, Dt, steps)
+fig3, ax5 = plt.subplots(1,1, figsize=(10,4))
+# plot y VS t
+ax5.scatter(lstt_exp, lsty_exp, marker = "+", color = "black", linewidth = 0.5)
+ax5.plot(lstt_exp, lsty_exp, label=f"time step = {Dt}")
 
+ # Plot the error
+ax5.errorbar(lstt_exp, lsty_exp, abs(lsterr_exp), fmt = "None", color = "lightgreen", elinewidth = 1, capsize = 3)
 
-
+ax5.set_xlabel("t")
+ax5.set_ylabel("f(y,t)")
+ax5.legend()
+ax5.grid(alpha=0.5)
+fig3.savefig(imagepath+"ex2_explicit_EulerDt3.pdf", dpi=300)
 
 ################################################################
 #Call and plot implicit
@@ -226,7 +252,7 @@ fig.savefig(imagepath+"ex2_explicit_Euler.pdf", dpi=300)
 df_dy = -1               #since dy/dt = -y => f=-y
 y_0 = 1
 t_0 = 0
-err_0 = 0.0001
+err_0 = 0.1
 y_1_guess = 1.5 #this is an initial guess
 
 #parameters
@@ -235,12 +261,12 @@ steps = 10
 #prepare plots
 fig2, (ax3, ax4) = plt.subplots(2,1)
 
-for Dt in (1,2,3):
+for Dt in (2,3):
     lsty_imp, lstf_imp, lstt_imp, lsterr_imp = run_implicitEuler(df_dy2, y_0, t_0, err_0, y_1_guess, Dt, steps)
 
     # plot y VS t
     ax3.plot(lstt_imp/Dt, lsty_imp, label = f"time step = {Dt}")
-    ax3.scatter(lstt_imp/Dt, lsty_imp)
+    ax3.scatter(lstt_imp/Dt, lsty_imp, marker = "+", color = "black",)
 
     # Plot the error
     ax3.errorbar(lstt_imp/Dt, lsty_imp, abs(lsterr_imp), fmt = "None", color = "lightgreen", elinewidth = 3, capsize = 3)
@@ -260,3 +286,23 @@ ax4.legend()
 ax4.grid(alpha=0.5)
 fig2.savefig(imagepath+"ex2_implicit_Euler.pdf", dpi=300)
 
+
+#Plotting Dt = 1 separately
+Dt = 1
+fig4, ax6 = plt.subplots(1,1, figsize=(10,4))
+lsty_imp, lstf_imp, lstt_imp, lsterr_imp = run_implicitEuler(df_dy2, y_0, t_0, err_0, y_1_guess, Dt, steps)
+
+# plot y VS t
+ax6.plot(lstt_imp/Dt, lsty_imp, label = f"time step = {Dt}")
+ax6.scatter(lstt_imp/Dt, lsty_imp, marker = "+", color = "black",)
+
+# Plot the error
+ax6.errorbar(lstt_imp/Dt, lsty_imp, abs(lsterr_imp), fmt = "None", color = "lightgreen", elinewidth = 3, capsize = 3)
+
+#Finish the plots
+ax6.set_xlabel("t")
+ax6.set_ylabel("y(t)")
+ax6.legend()
+ax6.grid(alpha=0.5)
+
+fig4.savefig(imagepath+"ex2_implicit_EulerDt1.pdf", dpi=300)
