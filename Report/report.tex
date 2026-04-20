@@ -42,7 +42,7 @@
 \begin{document}
 \maketitle
 
-\emph{The code and the LAtex version of this report can be found at \hyperlink{GitHub Repository}{link text}}
+\emph{The code and the LAtex version of this report can be found at \hyperlink{GitHub Repository}{https://github.com/AlbanSMA/CompAstro_Project2}}
 
 \section{Introduction}
 \subsection{Exercise 1}
@@ -91,7 +91,7 @@ Similarly:
     \label{fig:ex2_explicitEuler}
 \end{figure}
 
-We can see in figure \ref{fig:ex2_explicitEulerDt3} and \ref{fig:ex2_explicitEuler} that for the forward Euler method, the longer time steps produce functions which do not fit what is expected at all, walking up and down around the expected function with quite large errors (althought that error is extremely dependent on the keyboard defined initial error). The shorter time step however produced a much more reasonable function, and we can see that at $\Delta t = 0.5$, we can already see the real function appear. The initially quite large keyboard defined error is reduced to a very small error within only a few steps.
+We can see in figure \ref{fig:ex2_explicitEulerDt3} and \ref{fig:ex2_explicitEuler} that for the forward Euler method, the longer time steps produce functions which do not fit what is expected at all, walking up and down around the expected function with quite large errors (althought that error is extremely dependent on the keyboard defined initial error). The shorter time steps however produced a much more reasonable function, and we can see that at $\Delta t = 0.5$, we can already see the real function appear. The initially quite large keyboard defined error is reduced to a very small error within only a few steps.
 
 \begin{figure}[h!]
     \centering
@@ -107,7 +107,7 @@ We can see in figure \ref{fig:ex2_explicitEulerDt3} and \ref{fig:ex2_explicitEul
     \label{fig:ex2_implicitEuler}
 \end{figure}
 
-On the contrary, as we can see on figure \ref{fig:ex2_implicitEuler} and \ref{fig:ex2_implicitEulerDt1}, the implicit method seems to yield better results for longer times steps. For $\Delta = 1$, the function is increasing when it should be decreasing, while for $\Delta = 3$, it follows the expected curve. Even for quite high initially keyboard defined error, it falls to much smaller numbers quite fast.
+On the contrary, as we can see on figure \ref{fig:ex2_implicitEuler} and \ref{fig:ex2_implicitEulerDt1}, the implicit method seems to yield better results for longer times steps. For $\Delta t = 1$, the function is increasing when it should be decreasing, while for $\Delta t = 3$, it follows the expected curve. Even for quite high initially keyboard defined error, it falls to much smaller numbers quite fast.
 
 \subsection{Exercise 3}
 \emph{Reusing the code from Exercise II, plus the code in Code/Exercises/Exercise3.py}
@@ -126,7 +126,7 @@ On the contrary, as we can see on figure \ref{fig:ex2_implicitEuler} and \ref{fi
     \label{fig:ex3_implicitEuler}
 \end{figure}
 
-For this new function, the longer time steps are once again more accurate than the shorter ones, as we can see on figure \ref{fig:ex3_implicitEuler} and \ref{fig:ex3_implicitEulerDt1}. For $\Delta = 1$, the function increases when it should be decreasing, although the error remains quite small until the last step where it explodes. On the other hand, for $\Delta = 2$ and 3, the functions are quite accurate, $\Delta = 3$ being the most accurate, but the error explodes much faster, and in about equivalent value as for $\Delta = 1$. The accuracy for any time step size also depends heavily on the initial guess for the value of the second point.
+For this new function, the longer time steps are once again more accurate than the shorter ones, as we can see on figure \ref{fig:ex3_implicitEuler} and \ref{fig:ex3_implicitEulerDt1}. For $\Delta t= 1$, the function increases when it should be decreasing, although the error remains quite small until the last step where it explodes. On the other hand, for $\Delta t= 2$ and 3, the functions are quite accurate, $\Delta t= 3$ being the most accurate, but the error explodes much faster, and in about equivalent value as for $\Delta t= 1$. The accuracy for any time step size also depends heavily on the initial guess for the value of the second point.
 
 \subsection{Exercise 4}
 To implement a centred derivative, we could use a different method to find a new point away from the initial value, then use this new point to implement the method, then create another one further away with the first method. The projected one does not have to be extremely accurate, as it will be recalculated in the next step. However, if it is too inacurate, the error will only keep growing, as following points are based in part on this one.
@@ -228,7 +228,7 @@ And we are excluding the 1/dt terms, so we find:
 \end{bmatrix}
 \end{equation}
 
-To find the stiffness of the system, we need to calculate its eigenvalues. The code used to do so can be found in \emph{Code/Exercises/SysStiffness.py}. There seem to be an error in the calculation of the Jacobian, as the eigenvalues seem strange. However, by playing around with the densities in the system found, and with a fixed number densities for the protons, we can find some conclusions. The stiffness varies most with the density of deuterium, and least with $^4He$. It is stiffer when these densities are lower, and less stiff when they are higher. If the densities are too low, the eigenvalues are complex and it is more complicated to calculate the stiffness.
+To find the stiffness of the system, we need to calculate its eigenvalues. The code used to do so can be found in \emph{Code/Exercises/SysStiffness.py}. There seem to be an error in the calculation of the Jacobian, as the eigenvalues seem strange. However, by playing around with the densities in this system, and with a fixed number densities for the protons, we can make some observations. The stiffness varies most with the density of deuterium, and least with $^4He$. It is stiffer when these densities are lower, and less stiff when they are higher. If the densities are too low, the eigenvalues are complex and it is more complicated to calculate the stiffness.
 
 \subsection{Exercise 7}
 a. There are 4 types of particles, and so 4 equations are needed to describe the system.
@@ -256,10 +256,10 @@ So the Jacobian is :
 \end{equation*}
 
 
-\noindent c. If we add the radioactive decay of $^{56}Ni$ to the system, then we need to add terms to most of the equations of the systems, and thus the terms of the Jacobian, as the $^{56}Ni$ might decay to $^{52}Fe$, also releasing $\alpha$ particles in the process. Then there needs to be new destructive terms in the $^{56}Ni$ terms, and new constructive ones in the $^{52}Fe$ and $\alpha$ ones. Depending on what the $^56{Ni}$ decays to, there might also be a new equation in the system, representing a new particle. This particle would only have constructive terms.
+\noindent c. If we add the radioactive decay of $^{56}Ni$ to the system, then we need to add terms to most of the equations, and thus the terms of the Jacobian. The $^{56}Ni$ might decay to $^{52}Fe$, also releasing $\alpha$ particles in the process. Then there needs to be new destructive terms in the $^{56}Ni$ terms, and new constructive ones in the $^{52}Fe$ and $\alpha$ ones. Depending on what the $^{56}Ni$ decays to, there might also be a new equation in the system, representing a new particle. This particle would only have constructive terms.
 
-Similarly, photodissociation would add new destructive terms to the equations already in the system, and possibly constructive terms to new equations. This would depend on what the particle already present decay to.
+Similarly, photodissociation would add new destructive terms to the equations already in the system, and possibly constructive terms to new equations. This would depend on what the particles already present decay to.
 
-Finally, three-body reactions would also add both constructive and destructive terms to the already present equations, and create new ones, thus also adding terms to the Jacobian, and new rows and columns. For example, the three-body reaction $3\alpha \rightarrow ^{12}C$ would add a destructive term to the alpha equation, and thus also in the first term of the Jacobian (term $J_{11}$). It would also create a new equation, and new row and collumn with a constructive term to add the presence of $^{12}C$ to the system.
+Finally, three-body reactions would also add both constructive and destructive terms to the already present equations, and create new ones, thus also adding terms to the Jacobian, and new rows and columns. For example, the three-body reaction $3\alpha \rightarrow ^{12}C$ would add a destructive term to the alpha equation, and thus also in the first term of the Jacobian (term $J_{11}$). It would also create a new equation, and a new row and collumn with a constructive term to add the presence of $^{12}C$ to the system.
 
 \end{document}

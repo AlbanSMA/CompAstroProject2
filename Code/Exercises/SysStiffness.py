@@ -32,12 +32,15 @@ J_42 = 0
 J_43 = -2*r_3*n_3He
 J_44 = 0
 
+#Matrix
 J = np.array([J_11, J_12, J_13, J_14, J_21, J_22, J_23, J_24,
               J_31, J_32, J_33, J_34, J_41, J_42, J_43, J_44]).reshape(4,4)
 
+#Eigenvalues
 eigenvalues, eigenvectors = np.linalg.eig(J)
 print(eigenvalues)
 
+#Stiffness
 stiffness = max(eigenvalues)/min(eigenvalues)
 print(stiffness)
 

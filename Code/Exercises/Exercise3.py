@@ -52,7 +52,8 @@ ax4.legend()
 ax4.grid(alpha=0.5)
 fig2.savefig(imagepath+"ex3_implicitEuler.pdf", dpi=300)
 
-# Plot Dt= 1 separately
+
+# Plot Dt = 1 separately because it obscures the other ones
 fig3, ax5 = plt.subplots(1,1, figsize=(10,4))
 
 Dt = 1

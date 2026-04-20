@@ -1,11 +1,11 @@
 # Fdb version 4
-["pdflatex"] 1776644703.24633 "c:/Users/User/Documents/Documents/University/Master_SU/Year_1/IIB/CompAstro/Projects/Project2/Report/report.tex" "report.pdf" "report" 1776644706.46029 0
-  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_Euler.pdf" 1776609855 13665 932f8ac727f577dd95bbab15ce03246d ""
-  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_EulerDt3.pdf" 1776609855 11001 e8d2f7849b70cb197097cc1ddbe1c426 ""
-  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_Euler.pdf" 1776609856 13365 86e6c7c47726c91b0767215459a3cb2d ""
-  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_EulerDt1.pdf" 1776609856 10794 9c8c9ea07cceaa35d30fc11471f80920 ""
-  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEuler.pdf" 1776609856 13798 6f64f7d5bf458798884ec2e53b1d9479 ""
-  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEulerDt1.pdf" 1776609856 11387 41b97af34e020bebd20c3a9d02c83493 ""
+["pdflatex"] 1776645583.21075 "c:/Users/User/Documents/Documents/University/Master_SU/Year_1/IIB/CompAstro/Projects/Project2/Report/report.tex" "report.pdf" "report" 1776645587.3498 2
+  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_Euler.pdf" 1776645579 13665 3da23220194bbc404ff81e63b1cc9237 ""
+  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_EulerDt3.pdf" 1776645579 11001 a42daae98106292784971e145dd2a869 ""
+  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_Euler.pdf" 1776645580 13365 e538081f9ac50d1211d03943e6e5552b ""
+  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_EulerDt1.pdf" 1776645581 10794 462108ba651f239e555f462f58432136 ""
+  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEuler.pdf" 1776645582 13798 e94f6649d8ebc3ede38a221a536fe070 ""
+  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEulerDt1.pdf" 1776645582 11387 68a3fc3b8bf718cf9711a7b058345c55 ""
   "C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1776466522 84158 d77284a6843bde1e4b9764f09fb2e89e ""
   "C:/Users/User/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776466609 13349829 8eb88c4a9992613eb790c0fd9f4054d1 ""
   "C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -91,10 +91,10 @@
   "C:/Users/User/AppData/Local/Programs/MiKTeX/tex/latex/tools/verbatim.sty" 1761901070 7532 26d26e9d8f2ca784270d5da8ec7d102b ""
   "C:/Users/User/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/User/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
-  "c:/Users/User/Documents/Documents/University/Master_SU/Year_1/IIB/CompAstro/Projects/Project2/Report/report.tex" 1776644702 15536 aea57adb662b77393fd098d2541a70ed ""
-  "report.aux" 1776644705 5713 b22f695411524d941e2fabfd9149e204 "pdflatex"
-  "report.out" 1776644705 1047 40b3afce294a71f78f840add29770557 "pdflatex"
-  "report.tex" 1776644702 15536 aea57adb662b77393fd098d2541a70ed ""
+  "c:/Users/User/Documents/Documents/University/Master_SU/Year_1/IIB/CompAstro/Projects/Project2/Report/report.tex" 1776645367 15563 a6c90d0a7fcd80bff2d7b639ebc67e47 ""
+  "report.aux" 1776645586 5713 b22f695411524d941e2fabfd9149e204 "pdflatex"
+  "report.out" 1776645586 1047 40b3afce294a71f78f840add29770557 "pdflatex"
+  "report.tex" 1776645367 15563 a6c90d0a7fcd80bff2d7b639ebc67e47 ""
   (generated)
   "report.aux"
   "report.log"

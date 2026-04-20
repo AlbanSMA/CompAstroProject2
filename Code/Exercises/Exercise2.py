@@ -191,6 +191,8 @@ steps = 10
 #prepare plot:
 fig, (ax1, ax2) = plt.subplots(2,1)
 
+
+#Plot Dt = 0.5 separately, as it's decimal keep it from fitting easily in the loop
 Dt = 0.5
 lsty_exp, lstf_exp, lstt_exp, lsterr_exp = run_explicitEuler(df_dy2, y_0, t_0, err_0, f2, Dt, steps)
 
@@ -204,6 +206,7 @@ ax1.errorbar(lstt_exp/Dt, lsty_exp, abs(lsterr_exp), fmt = "None", color = "ligh
 #Plot the slope
 ax2.plot(lstt_exp/Dt, lstf_exp, label = f"time step = {Dt}")
 
+#Now plot 2 other times steps using a loop
 for Dt in (1,2):
     lsty_exp, lstf_exp, lstt_exp, lsterr_exp = run_explicitEuler(df_dy2, y_0, t_0, err_0, f2, Dt, steps)
 
@@ -228,6 +231,7 @@ ax2.set_ylabel("f(y,t)")
 ax2.legend()
 ax2.grid(alpha=0.5)
 fig.savefig(imagepath+"ex2_explicit_Euler.pdf", dpi=300)
+
 
 #Plot Dt = 3 on a separate plot to make it more visible
 Dt = 3
@@ -287,7 +291,7 @@ ax4.grid(alpha=0.5)
 fig2.savefig(imagepath+"ex2_implicit_Euler.pdf", dpi=300)
 
 
-#Plotting Dt = 1 separately
+#Plotting Dt = 1 separately to make the other time steps more visible in their own plot
 Dt = 1
 fig4, ax6 = plt.subplots(1,1, figsize=(10,4))
 lsty_imp, lstf_imp, lstt_imp, lsterr_imp = run_implicitEuler(df_dy2, y_0, t_0, err_0, y_1_guess, Dt, steps)

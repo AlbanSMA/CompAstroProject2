@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.18)  20 APR 2026 02:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.18)  20 APR 2026 02:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -263,7 +263,8 @@ Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 ) (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count314
-) (report.aux)
+)
+No file report.aux.
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
@@ -284,7 +285,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
 LaTeX Font Info:    ... okay on input line 42.
- (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+(C:\Users\User\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count315
 \scratchdimen=\dimen185
@@ -310,7 +311,6 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
  (C:\Users\User\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
 Package hyperref Info: Link coloring ON on input line 42.
- (report.out) (report.out)
 \@outlinefile=\write3
 \openout3 = `report.out'.
 
@@ -351,7 +351,31 @@ Package hyperref Info: Link coloring ON on input line 42.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_EulerDt3.pdf, id=40, 722.7pt x 289.08pt>
+c:/Users/User/Documents/Documents/University/Master_SU/Year_1/IIB/CompAstro/Projects/Project2/Report/report.tex:45: Missing $ inserted.
+<inserted text> 
+                $
+l.45 ...//github.com/AlbanSMA/CompAstro_Project2}}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/User/Documents/Documents/University/Master_SU/Year_1/IIB/CompAstro/Projects/Project2/Report/report.tex:45: Missing $ inserted.
+<inserted text> 
+                $
+l.45 ...//github.com/AlbanSMA/CompAstro_Project2}}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (149.29028pt too wide) in paragraph at lines 45--46
+[]\OT1/cmr/m/it/12 The code and the LA-tex ver-sion of this re-port can be found at [][]https://github.com/AlbanSMA/CompAstro$[]\OML/cmm/m/it/12 roject\OT1/cmr/m/n/12 2$[][] 
+ []
+
+<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_EulerDt3.pdf, id=4, 722.7pt x 289.08pt>
 File: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_EulerDt3.pdf Graphic file (type pdf)
 <use C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_EulerDt3.pdf>
 Package pdftex.def Info: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_EulerDt3.pdf  used on input line 82.
@@ -359,7 +383,7 @@ Package pdftex.def Info: C://Users//User//Documents//Documents//University//Mast
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_Euler.pdf, id=41, 462.52798pt x 346.89601pt>
+<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_Euler.pdf, id=5, 462.52798pt x 346.89601pt>
 File: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_Euler.pdf Graphic file (type pdf)
 <use C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_Euler.pdf>
 Package pdftex.def Info: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_explicit_Euler.pdf  used on input line 89.
@@ -367,7 +391,13 @@ Package pdftex.def Info: C://Users//User//Documents//Documents//University//Mast
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_EulerDt1.pdf, id=44, 722.7pt x 289.08pt>
+
+LaTeX Warning: Reference `fig:ex2_explicitEulerDt3' on page 1 undefined on input line 94.
+
+
+LaTeX Warning: Reference `fig:ex2_explicitEuler' on page 1 undefined on input line 94.
+
+<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_EulerDt1.pdf, id=6, 722.7pt x 289.08pt>
 File: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_EulerDt1.pdf Graphic file (type pdf)
 <use C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_EulerDt1.pdf>
 Package pdftex.def Info: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_EulerDt1.pdf  used on input line 98.
@@ -375,13 +405,19 @@ Package pdftex.def Info: C://Users//User//Documents//Documents//University//Mast
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_Euler.pdf, id=45, 462.52798pt x 346.89601pt>
+<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_Euler.pdf, id=7, 462.52798pt x 346.89601pt>
 File: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_Euler.pdf Graphic file (type pdf)
 <use C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_Euler.pdf>
 Package pdftex.def Info: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_Euler.pdf  used on input line 105.
 (pdftex.def)             Requested size: 437.50787pt x 328.14664pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Reference `fig:ex2_implicitEuler' on page 1 undefined on input line 110.
+
+
+LaTeX Warning: Reference `fig:ex2_implicitEulerDt1' on page 1 undefined on input line 110.
 
 [1
 
@@ -390,12 +426,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: Text page 3 contains only floats.
 
 [3 <C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_EulerDt1.pdf> <C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex2_implicit_Euler.pdf>]
-<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEulerDt1.pdf, id=203, 722.7pt x 289.08pt>
+<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEulerDt1.pdf, id=166, 722.7pt x 289.08pt>
 File: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEulerDt1.pdf Graphic file (type pdf)
 <use C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEulerDt1.pdf>
 Package pdftex.def Info: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEulerDt1.pdf  used on input line 117.
 (pdftex.def)             Requested size: 437.50787pt x 175.002pt.
-<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEuler.pdf, id=204, 462.52798pt x 346.89601pt>
+<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEuler.pdf, id=167, 462.52798pt x 346.89601pt>
 File: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEuler.pdf Graphic file (type pdf)
 <use C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEuler.pdf>
 Package pdftex.def Info: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEuler.pdf  used on input line 124.
@@ -403,6 +439,12 @@ Package pdftex.def Info: C://Users//User//Documents//Documents//University//Mast
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Reference `fig:ex3_implicitEuler' on page 4 undefined on input line 129.
+
+
+LaTeX Warning: Reference `fig:ex3_implicitEulerDt1' on page 4 undefined on input line 129.
 
 [4 <C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEulerDt1.pdf>] [5 <C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Plots//Introduction//ex3_implicitEuler.pdf>] [6] [7]
 Underfull \hbox (badness 10000) in paragraph at lines 234--236
@@ -414,24 +456,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 234--236
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
-Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 40B3AFCE294A71F78F840ADD29770557;1047.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `report.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `report.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  40B3AFCE294A71F78F840ADD29770557;1047.
  ) 
 Here is how much of TeX's memory you used:
- 11255 strings out of 467690
- 186978 string characters out of 5415450
- 614790 words of memory out of 5000000
- 40176 multiletter control sequences out of 15000+600000
+ 11237 strings out of 467690
+ 186433 string characters out of 5415450
+ 612921 words of memory out of 5000000
+ 40164 multiletter control sequences out of 15000+600000
  635501 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,17n,79p,807b,458s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,17n,79p,811b,458s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{GitHub\040Repository} has been referenced but does not exist, replaced by a fixed one
 
 <C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on report.pdf (8 pages, 271241 bytes).
+Output written on report.pdf (8 pages, 268330 bytes).
 PDF statistics:
- 365 PDF objects out of 1000 (max. 8388607)
+ 331 PDF objects out of 1000 (max. 8388607)
  28 named destinations out of 1000 (max. 500000)
- 103 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
