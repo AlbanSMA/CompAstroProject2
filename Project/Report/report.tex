@@ -1,0 +1,210 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{graphicx}
+\graphicspath{{C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Project//Plots//}}
+
+\usepackage[backend = biber, 
+            style=apa, 
+            bibstyle=apa,
+            pluralothers=true,
+            hyperref=false,
+            backref=true,
+            backrefstyle=two
+            ]{biblatex}
+
+\DeclareCiteCommand{\citedatelink}
+  {\usebibmacro{prenote}}
+  {\printtext[bibhyperref]{\printdate}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+
+\usepackage{hyperref}
+\hypersetup{colorlinks, linkcolor={blue}, citecolor={blue}, urlcolor={blue}}
+
+
+\usepackage{geometry}
+\geometry{tmargin = 80pt, 
+          rmargin = 80pt, 
+          lmargin = 80pt, 
+          bmargin = 80pt}
+
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{wrapfig}
+\usepackage[font=small]{caption}
+\usepackage{multirow}
+\usepackage{changepage}
+
+\bibliography{ref.bib}
+
+\title{Project}
+\author{Anvel (Marguerite) de Sainte Marie d'Agneaux}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+With today's observations capacity, it is not possible for us to probe the Big Bang directly. As it did not obey the known laws of physics within the first fractions of seconds, it might never be possible for us to do so. One way to test our models of the Big Bang is to compare the known number of different elements today to the amount there should have been at the time given the different models. In other words, knowing the possible reactions between elements, and their reaction rates, today, we can make models of the Big Bang nucleosynthesis, and test it against the amount which results from different models of the Big Bang \parencite{copi_big-bang_1995}.
+
+\section{Methods}
+\label{sec:met}
+
+The abundances of elements across time can be determined by using linear algebra. From a system of equations which we will see in part \ref{subsec:bigbang}, we have a set of differential equations across time 
+$$\frac{dn_j}{dt}.$$
+Each equation is of the shape :
+$$\frac{dn_j}{dt} = \sum\sum n_ln_k\lambda_{lk} - n_j\sum n_k,$$
+where positive terms are creation terms, and negative ones are destructive. The $_lambda$s are the reaction rates, and indicate how much of each element is created/destroyed per time steps.
+We will call each term in this set of equations $f_j(\vec{n})$, where j is the type of particle this equation concerns. Then, we know that 
+$$f_j'(\vec{n_i})(\vec{n_{i+1}}-\vec{n_i}) = -f_j(\vec{n_i}),$$
+where i are points in the function. If we change this to concern a set of equations instead of a singular one, we obtain : 
+$$J(\vec{n_i})(\vec{n_{i+1}}-\vec{n_i}) = -A(\vec{n_i}).$$ 
+In this, J is the Jacobian, a matrix in which each term is
+$$\frac{\partial n_j}{\partial t}/dn_k,$$ 
+and j can be equal k. A is also a matrix, which contains the set of linear equations $f_i$. So we have that 
+$$J(\vec{n_i})(\vec{n_{i+1}}-\vec{n_i}) = -A(\vec{n_i}),$$
+and we want to find $\vec{n_{i+1}}$. If we move this equation around, we finally obtain that $$\vec{n_{i+1}} = \vec{n_i} + J_{i}^{-1}\dot(-A_i).$$ 
+
+Where A is the matrix :
+$$A = \begin{bmatrix}
+    \frac{dn_0}{dt}\\
+     .\\
+     .\\
+     .\\
+     \frac{dn_N}{dt}\\
+\end{bmatrix}$$
+
+and J, if we do not write the dt contribution, is the matrix:
+$$\begin{bmatrix}
+    \frac{dn_0}{dn_0} & ... & \frac{dn_0}{dn_N}\\
+    . & . & .\\
+    . & . & .\\
+    . & . & .\\
+    \frac{dn_N}{dn_0} & ... & \frac{dn_N}{dn_N}\\
+\end{bmatrix}$$
+
+
+\subsection{Code}
+\label{subsec:code}
+We compute this model in Fortran. As it is a compiled code, it greatly accelerate the speed of computations. The structure is composed of five files and a library. A first file initiates the variables, including the initial number densities, then calls a few functions, to create a list of time steps and temperatures, as we will see in \ref{subsec:bigbang} that the temperature varies across time. Then it initiates a loop for a predetermined number of steps, and get the reaction rates for the temperature at each steps, the matrix A and the matrix J for these reaction rates and number densities. The library DGESV then solves the equation $J(n_{i+1} - n_i) = -A$. The new abundance is saved to a list. This repeat for a predetermined number of steps.
+
+A second loop saves this data to a text file, and another function creates a plot of the abundances over time.
+
+\subsection{Big Bang Nucleosynthesis}
+\label{subsec:bigbang}
+As mentioned in the \nameref{sec:intro}, the creation of the lighter elements right after the Big Bang can be described by a set of reactions. These are described by a set of elements reacting together to form another set. They are thus linked to the elements described, their initial number densities, and reaction rates. Together, they are also linked to a Jacobian, as mentioned in \nameref{subsec:code}. The reactions choosen are displayed bellow: 
+\begin{equation*}
+    \label{eq:reacts}
+\end{equation*}
+\begin{align*}
+    &(0) &p+n &\rightarrow D+\gamma\\
+    &(1) &D+D &\rightarrow T+p\\
+    &(2) &^3He+D &\rightarrow \hspace{1pt}^4He+p\\
+    &(3) &T+D &\rightarrow\hspace{1pt}^4He+n\\
+    &(4) &D+p &\rightarrow\hspace{1pt}^3He+\gamma\\
+    &(5) &D+D &\rightarrow\hspace{1pt}^3He+n\\
+    &(6) &^3He+n &\rightarrow T+p\\
+\end{align*}
+
+They were chosen as the most mentioned in literature referencing Big Bang nucleosynthesis, beyond the initial weak reactions in the proto-nuclear soup \parencite{baring_big_2024,ryan_big_2008,navas_review_2024}. To help in the programming, each particle was given an index (see table \ref{tab:elems}): 
+
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{c | c}
+        Particle & Index\\
+        \hline
+        p & 0\\
+        n & 1\\
+        D & 2\\
+        $\gamma$ & 3\\
+        T & 4\\
+        $^3He$ & 5\\
+        $^4He$ & 6\\
+    \end{tabular}
+    \caption{Indexing of the elements represented in this system.}
+    \label{tab:elems}
+\end{table}
+
+Similarly, the reaction rates were given indexes, which are already indicated beside the reactions (\ref{eq:reacts}). Together, they formed a system of equations which describe this system : 
+
+\begin{equation}
+    \label{eq:sys}
+    \centering
+    \begin{split}
+        \frac{dn_0}{dt} &= -\lambda_0n_0n_1 + \lambda_1n_2^2 + \lambda_2n_5n_2 + \lambda_6n_5n_1 - \lambda_4n_2n_0\\
+        \frac{dn_1}{dt} &= -\lambda_0n_0n_1 + \lambda_3n_4n_2 + \lambda_5n_2^2 - \lambda_6n_5n_1\\
+        \frac{dn_2}{dt} &= \lambda_0n_0n_1 - \lambda_1n_2^2 - \lambda_2n_5n_2 - \lambda_3n_4n_2 - \lambda_4n_2n_0 - \lambda_5n_2^2\\
+        \frac{dn_3}{dt} &= \lambda_0n_0n_1 + \lambda_4n_2n_0\\
+        \frac{dn_4}{dt} &= \lambda_1n^2_2 - \lambda_3n_4n_2 + \lambda_6n_5n_1\\
+        \frac{dn_5}{dt} &= -\lambda_2n_5n_2 + \lambda_5n^2_2 + \lambda_4n_2n_0 - \lambda_6n_5n_1\\
+        \frac{dn_6}{dt} &= \lambda_2n_5n_2 + \lambda_3n_4n_2\\
+    \end{split}
+\end{equation}
+
+As the Jacobain is derived from this, and it is quite a long derivation, it can be found in \nameref{subsec:appA}. Finally, the reaction rates and initial densities are the only elements missing from this system. The reaction rates can be found in table \ref{tab:rates}, they originate from \cite{wagoner_synthesis_1967}. Some of them depend on the temperature and the baryon density of the system. We choose a temperature range of $10^{11}$ K to $10^9$ K across t = 0.01 to 100 s, as that corresponds to the temperature of the Universe when protons and neutrons paired to form deuterium and helium \parencite{kolb_early_2018}. The reaction rates also depend on the baryon density $\rho_b$ \parencite{wagoner_synthesis_1967}, which we take to be $3\cdot 10^{-31} g/cm^3$ \parencite{copi_big-bang_1995}.
+
+\begin{table}[ht!]
+\begin{adjustwidth}{-2.7cm}{}
+    \centering
+    \begin{tabular}{c|c|c}
+        Reaction & Rate ($s^{-1}$) & In Wagoner et al.\\
+        \hline
+        0 & $2.5\cdot 10^4 \rho_b$ & 1b\\
+        1 & $3.9 \cdot 10^8 \cdot \rho_b T_9^{-2/3}\cdot \exp(-4.26\cdot T_9^{-1/3})(1+0.0979\cdot T_9^{1/3} + 0.642\cdot T_9^{2/3} + 0.440\cdot T_9)$& 8b\\
+        2 & $2.60\cdot 10^9 \cdot \rho_b T_9^{-3/2}\cdot \exp(-2.99\cdot T_9^{-1})$& 10b\\
+        3 & $1.38\cdot 10^9 \cdot\rho_b T_9^{-3/2}\cdot\exp(-0.745\cdot T_9^{-1})$& 11b\\
+        4 & $2.23\cdot 10^3 \cdot \rho_b T_9^{-2/3}\cdot\exp(-3.72\cdot T_9^{-1/3})(1+0.112\cdot T_9^{1/3}+3.38\cdot T_9^{2/3}+2.65\cdot T_9)$& 2b\\
+        5 & $3.9 \cdot 10^8\cdot \rho_b T_9^{-2/3}\cdot \exp(-4.26\cdot T_9^{-1/3})(1+0.0979\cdot T_9^{1/3} + 0.642\cdot T_9^{2/3} + 0.440\cdot T_9)$& 7b\\
+        6 & $7.06\cdot10^8\rho_b$& 4b\\
+    \end{tabular}
+    \caption{Reaction rates in this system.}
+    \label{tab:rates}
+\end{adjustwidth}
+\end{table}
+
+The last elements missing to run this model are the initial number densities. As they are not yet formed at t=0.1, we can already know that the number densities of anything larger than the neutrons and protons will be 0. The only exception could be the $\gamma$ particles, but as they are not destroyed, only created, we can still set it to 0 without affecting our system. Remain the proton and neutron density. We set them to be $n_0 = 5\cdot 10^{-1} cm^{-3}$ and $n_1 = 7\cdot 10^{-1} {cm^-3}$. %find sources for this
+
+
+\section{Results}
+\label{sec:res}
+
+%discuss subjects 5 and 8
+
+\section{Discussion}
+\label{sec:disc}
+
+While this model is good to represent the bare bones of Big Bang nucleosynthesis, the difference shown between other models, this model, and observed densities can be explained by the simplifications made in this model. In particular, a number of reactions were not included here. \cite{wagoner_synthesis_1967} uses more than eighty reactions and their reverse, for example. We also do not model any reverse reaction, which also influences the densities we find.
+
+\section{Conclusions}
+\label{sec:conc}
+
+\printbibliography
+
+\section{Appendices}
+\label{sec:app}
+
+\subsection{Appendix A}
+\label{subsec:appA}
+
+The Jacobian is composed of $7 \times 7$ functions, each term being the derivative of $\frac{dn_i}{dt}$ as a function of $n_j$, where i can be equal to j.\\
+
+The terms in the first row are :
+\begin{equation*}
+    \centering
+    \begin{split}
+        J_{00} &= -\lambda_0n_1 -\lambda_4n_2\\
+        J_{01} &= -\lambda_0n_0 +\lambda_6n_5\\
+        J_{02} &= 2\lambda_1n_2 +\lambda_2n_5 - \lambda_4n_0\\
+        J_{03} &= 0\\
+        J_{04} &= 0\\
+        J_{05} &= \lambda_2n_2 + \lambda_6n_1\\
+        J_{06} &= 0\\
+    \end{split}
+\end{equation*}
+
+Second row:
+
+
+\end{document}
