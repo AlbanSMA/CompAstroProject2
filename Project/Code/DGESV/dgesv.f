@@ -131,7 +131,7 @@
 *     ..
 *     .. Array Arguments ..
       INTEGER            IPIV( * )
-      DOUBLE PRECISION   A( LDA, * ), B( LDB, * )
+      DOUBLE PRECISION,  intent(out) :: A( LDA, * ), B( LDB, * )
 *     ..
 *
 *  =====================================================================

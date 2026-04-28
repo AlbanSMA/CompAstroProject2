@@ -11,7 +11,7 @@ subroutine make_J(ns, lam, J)
     real :: J60, J61, J62, J63, J64, J65, J66
 
     ! First row
-    J00 = -lam(1)*ns(2)
+    J00 = -lam(1)*ns(2) - lam(5)*ns(3)
     J01 = -lam(1)*ns(1) + lam(7)*ns(6)
     J02 = 2*lam(2)*ns(3) + lam(3)*ns(6) - lam(5)*ns(1)
     J03 = 0
@@ -19,7 +19,7 @@ subroutine make_J(ns, lam, J)
     J05 = lam(3)*ns(3) + lam(7)*ns(2)
     J06 = 0
 
-    J(1,:) = (/J00, J01, J02, J03, J04, J05, J06/)
+    J(:,1) = (/J00, J01, J02, J03, J04, J05, J06/)
 
     ! Second row
     J10 = -lam(1)*ns(2)
@@ -30,7 +30,7 @@ subroutine make_J(ns, lam, J)
     J15 = -lam(7)*ns(2)
     J16 = 0
 
-    J(2,:) = (/J10, J11, J12, J13, J14, J15, J16/)
+    J(:,2) = (/J10, J11, J12, J13, J14, J15, J16/)
 
     ! Third row
     J20 = lam(1)*ns(2) - lam(5)*ns(3)
@@ -41,7 +41,7 @@ subroutine make_J(ns, lam, J)
     J25 = -lam(3)*ns(3)
     J26 = 0
 
-    J(3,:) = (/J20, J21, J22, J23, J24, J25, J26/)
+    J(:,3) = (/J20, J21, J22, J23, J24, J25, J26/)
 
     ! Fourth row
     J30 = lam(1)*ns(2) + lam(5)*ns(3)
@@ -52,7 +52,7 @@ subroutine make_J(ns, lam, J)
     J35 = 0
     J36 = 0
 
-    J(4,:) = (/J30, J31, J32, J33, J34, J35, J36/)
+    J(:,4) = (/J30, J31, J32, J33, J34, J35, J36/)
 
     ! Fifth row
     J40 = 0
@@ -63,7 +63,7 @@ subroutine make_J(ns, lam, J)
     J45 = lam(7)*ns(2)
     J46 = 0
 
-    J(5,:) = (/J40, J41, J42, J43, J44, J45, J46/)
+    J(:,5) = (/J40, J41, J42, J43, J44, J45, J46/)
 
     ! Sixth row
     J50 = lam(5)*ns(3)
@@ -74,7 +74,7 @@ subroutine make_J(ns, lam, J)
     J55 = -lam(3)*ns(3) - lam(7)*ns(2)
     J56 = 0
 
-    J(6,:) = (/J50, J51, J52, J53, J54, J55, J56/)
+    J(:,6) = (/J50, J51, J52, J53, J54, J55, J56/)
 
     ! Seventh row
     J60 = 0
@@ -85,7 +85,8 @@ subroutine make_J(ns, lam, J)
     J65 = lam(3)*ns(3)
     J66 = 0
 
-    J(7,:) = (/J60, J61, J62, J63, J64, J65, J66/)
-    
+    J(:,7) = (/J60, J61, J62, J63, J64, J65, J66/)
+
+    J = reshape(J, shape(J))
     return
 end subroutine

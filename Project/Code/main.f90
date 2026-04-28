@@ -21,83 +21,113 @@ program main
 
         ! OUT_FILE and fu : file and opener to save the data
 
+    ! Force quadruple precision for large numbers
+    !integer, parameter :: dp = selected_real_kind(20, 900)
+
+
     ! Matrices initialisation
     real :: J(7, 7), J_copy(7, 7)
-    real :: A(1,7), A_copy(1,7), d(1,7), ns(1,7), new_ns(1,7), lam(1,7)
+    real :: A(7), A_copy(7), d(7), ns(7), new_ns(7), lam(7)
 
-    ! Parameters for the matrix and number of steps
+    ! Parameters for the matrix
     integer :: IPIV(7)
-    integer, parameter :: N = 7, NRHS = 1, LDA = 7, LDB = 7, steps = 3000
+    integer, parameter :: N = 7, NRHS = 0, LDA = 7, LDB = 7
     integer :: INFO, i
 
-    ! Variables : number densities, dt, Temperature and baryon density
+    ! Variables : 
+    ! number of steps (=resolution)
+    ! number densities, dt, Temperature
+    ! top and bottom temperature
+    ! smst, div and tstep are to define arrays of dt and T9 later
+    integer, parameter :: steps = 1000000
     real :: n0, n1, n2, n3, n4, n5, n6
-    real :: dt, T9(1, steps)
-    real :: rho_b
+    real :: dt(steps), T9(steps)
+    real :: tstart, tstop
 
     ! Get storing list and steps number
-    real lst_nsdt(1, 7, steps)
-    real lst_dt(1, steps)
+    real :: lst_nsdt(7, steps)
+    real :: lst_dt(steps)
 
-    ! Make data file to store the results and plotting file
+    ! Make data file to store the results
     character(len=*), parameter :: OUT_FILE = "data.txt"
     integer :: fu
 
+
+!-----------------------------------------------------------------------------
+
     ! Initial values of ns
-    n0 = 2.0*(10.0**5)
-    n1 = 3.0*(10.0**5)
+    n0 = 2e3
+    n1 = 3e3
     n2 = 0
     n3 = 0
     n4 = 0
     n5 = 0
     n6 = 0
     ns = reshape((/n0, n1, n2, n3, n4, n5, n6/), shape(ns))
-    print *, shape(ns)
 
-    ! Values of rho_b, dt, and T9
-    rho_b = 3*(10.0**(-31))
-    dt = (0.1+100)/steps
-    call linspace((10.0**11)/(10.0**9), (10.0**9)/(10.0**9), T9)
-    print *, shape(T9), dt
+
+!-----------------------------------------------------------------------------
+
+    ! Values of t, dt and T9, by creating range(start, stop, step) functions
+        ! t and dt
+    tstart = 1e-1
+    tstop = 1.5e1
+        
+    dt = (tstop-tstart)/steps
+
+            ! list of ts
+    lst_dt(1) = tstart
+    do i=2, steps
+        lst_dt(i) = lst_dt(i-1)+dt(i)
+    end do
+
+    T9 = ((1.3e10)/sqrt(lst_dt))/1e9
+
+!-----------------------------------------------------------------------------
 
     ! Initialise for the loop
-    d = 0
+    d = 0.
     new_ns = ns+d
-    do i=1, steps
+    lst_nsdt(:,1) = ns
+
+    do i=1, steps-1
         ! Get the reaction rates
-        call get_lam(rho_b, T9(:,i), lam, dt)
-        print *, shape(lam)
+        call get_lam(T9(i), lam, dt)
+        lam = lam*dt(i)
+        !print*, lam
 
         ! Get A and its Jacobian
         call make_A(new_ns, lam, A)
-        A_copy = -A
-        print *, shape(A), shape(A_copy)
-        print *, A_copy
+        A_copy = A
+        !print*,A
     
-        call make_J(new_ns, lam, J)
+        !call make_J(new_ns, lam, J)
         J_copy = J
-        print *, shape(J), shape(J_copy)
         
         ! Solve the matrix
         call dgesv(N, NRHS, J_copy, LDA, IPIV, A_copy, LDB, INFO)
-        print *, shape(J_copy), shape(A_copy)
 
         ! get d = ns_(i+1) - ns from the result, which is A_copy
         d = A_copy
-        print*, d
-        new_ns = ns + d  ! new_ns is ns + d
+        print*,"d",d
+        print*,"ns",ns
+
+        ! new_ns is ns + d
+        new_ns = ns + d
+        !print*, new_ns
 
         ! store the results in a list for later
-        lst_nsdt(:,:,i) = new_ns
-        lst_dt(:,i) = lst_dt(:,i-1)+dt
+        lst_nsdt(:,i+1) = new_ns
+
+        ! reinitialise
         ns = new_ns
-        print *, ns
     end do
 
+!-----------------------------------------------------------------------------
     ! Now save this data to a text file
     open(action="write", file=OUT_FILE, newunit=fu, status="replace")
     do i=1, steps
-        write(fu,*) lst_dt(:,i), lst_nsdt(:,:,i)
+        write(fu,*) lst_dt(i), lst_nsdt(:,i)
     end do
     close(fu)
 

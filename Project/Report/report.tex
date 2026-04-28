@@ -35,10 +35,11 @@
 \usepackage[font=small]{caption}
 \usepackage{multirow}
 \usepackage{changepage}
+\usepackage{rotating}
 
 \bibliography{ref.bib}
 
-\title{Project}
+\title{Model of Big Bang Nucleosynthesis}
 \author{Anvel (Marguerite) de Sainte Marie d'Agneaux}
 \date{}
 
@@ -47,25 +48,24 @@
 
 \section{Introduction}
 \label{sec:intro}
-With today's observations capacity, it is not possible for us to probe the Big Bang directly. As it did not obey the known laws of physics within the first fractions of seconds, it might never be possible for us to do so. One way to test our models of the Big Bang is to compare the known number of different elements today to the amount there should have been at the time given the different models. In other words, knowing the possible reactions between elements, and their reaction rates, today, we can make models of the Big Bang nucleosynthesis, and test it against the amount which results from different models of the Big Bang \parencite{copi_big-bang_1995}.
+During the first seconds after the Big Bang, most of the light elements, up to Berilium, were created. All the elements heavier than this were created much later, in stars. However, with today's observations capacity, it is not possible for us to probe the Big Bang directly. As it did not obey the known laws of physics within the first fractions of seconds, it might never be possible for us to do so. One way to test our models is to compare the known number of different elements today to the amount there should have been at the time given the different models. In other words, knowing the possible reactions between elements and their reaction rates today, we can make models of the Big Bang nucleosynthesis, and test it against the amount which results from different models of the Big Bang \parencite{copi_big-bang_1995}. 
 
 \section{Methods}
 \label{sec:met}
-
-The abundances of elements across time can be determined by using linear algebra. From a system of equations which we will see in part \ref{subsec:bigbang}, we have a set of differential equations across time 
+The abundances of elements across time can be determined from linear algebra. Using a system of equations which we will see in part \ref{subsec:bigbang}, we have a set of differential equations across time 
 $$\frac{dn_j}{dt}.$$
 Each equation is of the shape :
 $$\frac{dn_j}{dt} = \sum\sum n_ln_k\lambda_{lk} - n_j\sum n_k,$$
 where positive terms are creation terms, and negative ones are destructive. The $_lambda$s are the reaction rates, and indicate how much of each element is created/destroyed per time steps.
 We will call each term in this set of equations $f_j(\vec{n})$, where j is the type of particle this equation concerns. Then, we know that 
-$$f_j'(\vec{n_i})(\vec{n_{i+1}}-\vec{n_i}) = -f_j(\vec{n_i}),$$
+$$f_j'(\vec{n_i})(\vec{n_{i+1}}-\vec{n_i}) = f_j(\vec{n_i}),$$
 where i are points in the function. If we change this to concern a set of equations instead of a singular one, we obtain : 
-$$J(\vec{n_i})(\vec{n_{i+1}}-\vec{n_i}) = -A(\vec{n_i}).$$ 
+$$J(\vec{n_i})(\vec{n_{i+1}}-\vec{n_i}) = A(\vec{n_i}).$$ 
 In this, J is the Jacobian, a matrix in which each term is
 $$\frac{\partial n_j}{\partial t}/dn_k,$$ 
 and j can be equal k. A is also a matrix, which contains the set of linear equations $f_i$. So we have that 
-$$J(\vec{n_i})(\vec{n_{i+1}}-\vec{n_i}) = -A(\vec{n_i}),$$
-and we want to find $\vec{n_{i+1}}$. If we move this equation around, we finally obtain that $$\vec{n_{i+1}} = \vec{n_i} + J_{i}^{-1}\dot(-A_i).$$ 
+$$J(\vec{n_i})(\vec{n_{i+1}}-\vec{n_i}) = A(\vec{n_i}),$$
+and we want to find $\vec{n_{i+1}}$. If we move this equation around, we finally obtain that $$\vec{n_{i+1}} = \vec{n_i} + J_{i}^{-1}\dot(A_i).$$ 
 
 Where A is the matrix :
 $$A = \begin{bmatrix}
@@ -88,7 +88,7 @@ $$\begin{bmatrix}
 
 \subsection{Code}
 \label{subsec:code}
-We compute this model in Fortran. As it is a compiled code, it greatly accelerate the speed of computations. The structure is composed of five files and a library. A first file initiates the variables, including the initial number densities, then calls a few functions, to create a list of time steps and temperatures, as we will see in \ref{subsec:bigbang} that the temperature varies across time. Then it initiates a loop for a predetermined number of steps, and get the reaction rates for the temperature at each steps, the matrix A and the matrix J for these reaction rates and number densities. The library DGESV then solves the equation $J(n_{i+1} - n_i) = -A$. The new abundance is saved to a list. This repeat for a predetermined number of steps.
+We compute this model in Fortran. As it is a compiled code, it greatly accelerate the speed of computations. The structure is composed of five files and a library. A first file initiates the variables, including the initial number densities, then calls a few functions, to create a list of time steps and temperatures, as we will see in \ref{subsec:bigbang} that the temperature varies across time. Then it initiates a loop for a predetermined number of steps, and get the reaction rates for the temperature at each steps, the matrix A and the matrix J for these reaction rates and number densities. The library DGESV then solves the equation $J(n_{i+1} - n_i) = A$. The new abundance is saved to a list. This repeat for a predetermined number of steps.
 
 A second loop saves this data to a text file, and another function creates a plot of the abundances over time.
 
@@ -143,26 +143,10 @@ Similarly, the reaction rates were given indexes, which are already indicated be
     \end{split}
 \end{equation}
 
-As the Jacobain is derived from this, and it is quite a long derivation, it can be found in \nameref{subsec:appA}. Finally, the reaction rates and initial densities are the only elements missing from this system. The reaction rates can be found in table \ref{tab:rates}, they originate from \cite{wagoner_synthesis_1967}. Some of them depend on the temperature and the baryon density of the system. We choose a temperature range of $10^{11}$ K to $10^9$ K across t = 0.01 to 100 s, as that corresponds to the temperature of the Universe when protons and neutrons paired to form deuterium and helium \parencite{kolb_early_2018}. The reaction rates also depend on the baryon density $\rho_b$ \parencite{wagoner_synthesis_1967}, which we take to be $3\cdot 10^{-31} g/cm^3$ \parencite{copi_big-bang_1995}.
+As the Jacobain is derived from this, and it is quite a long derivation, it can be found in \nameref{subsec:appA}. Finally, the reaction rates and initial densities are the only elements missing from this system. The reaction rates were taken from \cite{irena_popular_2004}, and they depend on the temperature of the system. We choose a temperature range of $10^{11}$ K to $10^9$ K across t = 0.01 to 100 s, as that corresponds to the temperature of the Universe when protons and neutrons paired to form deuterium and helium \parencite{kolb_early_2018}. The reaction rates are of the shape:
+$$\lambda_i = \exp(a_0 + a_1/T_9 + a_2/T_9^{1/3} + a_3\cdot T_9^{1/3} + a_4\cdot T_9 + a_5\cdot T_9^{5/3} + a_6\cdot\log(T_9))$$
 
-\begin{table}[ht!]
-\begin{adjustwidth}{-2.7cm}{}
-    \centering
-    \begin{tabular}{c|c|c}
-        Reaction & Rate ($s^{-1}$) & In Wagoner et al.\\
-        \hline
-        0 & $2.5\cdot 10^4 \rho_b$ & 1b\\
-        1 & $3.9 \cdot 10^8 \cdot \rho_b T_9^{-2/3}\cdot \exp(-4.26\cdot T_9^{-1/3})(1+0.0979\cdot T_9^{1/3} + 0.642\cdot T_9^{2/3} + 0.440\cdot T_9)$& 8b\\
-        2 & $2.60\cdot 10^9 \cdot \rho_b T_9^{-3/2}\cdot \exp(-2.99\cdot T_9^{-1})$& 10b\\
-        3 & $1.38\cdot 10^9 \cdot\rho_b T_9^{-3/2}\cdot\exp(-0.745\cdot T_9^{-1})$& 11b\\
-        4 & $2.23\cdot 10^3 \cdot \rho_b T_9^{-2/3}\cdot\exp(-3.72\cdot T_9^{-1/3})(1+0.112\cdot T_9^{1/3}+3.38\cdot T_9^{2/3}+2.65\cdot T_9)$& 2b\\
-        5 & $3.9 \cdot 10^8\cdot \rho_b T_9^{-2/3}\cdot \exp(-4.26\cdot T_9^{-1/3})(1+0.0979\cdot T_9^{1/3} + 0.642\cdot T_9^{2/3} + 0.440\cdot T_9)$& 7b\\
-        6 & $7.06\cdot10^8\rho_b$& 4b\\
-    \end{tabular}
-    \caption{Reaction rates in this system.}
-    \label{tab:rates}
-\end{adjustwidth}
-\end{table}
+Table \ref{tab:rates} in \nameref{subsec:appB} is a table of the variables $a$ used for this system. However, these reaction rates are in $cm^{-3}mol^{-1}s^{-1}$, and we want them in $cm^{-3}s^{-1}$, as we are not looking for a mass density but a number density. So these rates also need to be divided by $N_A = 6.02*10^{23} mol^{-1}$.
 
 The last elements missing to run this model are the initial number densities. As they are not yet formed at t=0.1, we can already know that the number densities of anything larger than the neutrons and protons will be 0. The only exception could be the $\gamma$ particles, but as they are not destroyed, only created, we can still set it to 0 without affecting our system. Remain the proton and neutron density. We set them to be $n_0 = 5\cdot 10^{-1} cm^{-3}$ and $n_1 = 7\cdot 10^{-1} {cm^-3}$. %find sources for this
 
@@ -205,6 +189,110 @@ The terms in the first row are :
 \end{equation*}
 
 Second row:
+\begin{equation*}
+    \centering
+    \begin{split}
+        J_{10} &= -\lambda_0n_1\\
+        J_{11} &= -\lambda_0n_0 - \lambda_6n_5\\
+        J_{12} &= \lambda_3n_4 + 2\lambda_5n_2\\
+        J_{13} &= 0\\
+        J_{14} &= \lambda_3n_2\\
+        J_{15} &= -\lambda_6n_1\\
+        J_{16} &= 0
+    \end{split}
+\end{equation*}
 
+Third row:
+\begin{equation*}
+    \centering
+    \begin{split}
+        J_{20} &= \lambda_0n_1 - \lambda_4n_2\\
+        J_{21} &= \lambda_0n_0\\
+        J_{22} &= -2\lambda_1n_2 -\lambda_2n_5 - \lambda_3n_4 - \lambda_4n_0 - 2\lambda_5n_2\\
+        J_{23} &= 0\\
+        J_{24} &= -\lambda_3n_2\\
+        J_{25} &= -\lambda_2n_2\\
+        J_{26} &= 0
+    \end{split}
+\end{equation*}
+
+Fourth row:
+\begin{equation*}
+    \centering
+    \begin{split}
+       J_{30} &= \lambda_0n_1 + \lambda_4n_2\\
+       J_{31} &= \lambda_0n_0\\
+       J_{32} &= \lambda_4n_0\\
+       J_{33} &= 0\\
+       J_{34} &= 0\\
+       J_{35} &= 0\\
+       J_{36} &= 0
+    \end{split}
+\end{equation*}
+
+Fifth row:
+\begin{equation*}
+    \centering
+    \begin{split}
+       J_{40} &= 0\\
+       J_{41} &= \lambda_6n_5\\
+       J_{42} &= 2\lambda_1n_2 - \lambda_3n_4\\
+       J_{43} &= 0\\
+       J_{44} &= -\lambda_3n_2\\
+       J_{45} &= \lambda_6n_1\\
+       J_{46} &= 0
+    \end{split}
+\end{equation*}
+
+Sixth row:
+\begin{equation*}
+    \centering
+    \begin{split}
+        J_{50} &= \lambda_4n_2\\
+        J_{51} &= -\lambda_6n_5\\
+        J_{52} &= -\lambda_2n_5 + 2\lambda_5n_2 + \lambda_4n_0\\
+        J_{53} &= 0\\
+        J_{54} &= 0\\
+        J_{55} &= -\lambda_2n_2 - \lambda_6n_1\\
+        J_{56} &= 0
+    \end{split}
+\end{equation*}
+
+Seventh row:
+\begin{equation*}
+    \centering
+    \begin{split}
+        J_{60} &= 0\\
+        J_{61} &= 0\\
+        J_{62} &= \lambda_2n_5 + \lambda_3n_4\\
+        J_{63} &= 0\\
+        J_{64} &= \lambda_3n_2\\
+        J_{65} &= \lambda_2n_2\\
+        J_{66} &= 0
+    \end{split}
+\end{equation*}
+
+\subsection{Appendix B}
+\label{subsec:appB}
+
+
+\begin{sidewaystable}
+    \centering
+    \begin{tabular}{c|c|c|c|c|c|c|c}
+    Reaction  & \multicolumn{7}{c}{Rate parameters ($cm^{-3}mol^{-1}s^{-1}$)}\\
+    \hline
+    & $a_0$ & $a_1$ & $a_2$ & $a_3$ & $a_4$ & $a_5$ & $a_6$\\
+    \hline
+    0 & $1.07548\cdot10^1$ & 0 & 0 & -2.30472 & $-8.87862\cdot 10^{-1}$ & $1.37663\cdot10^{-1}$ & 0\\
+    1 & $1.88052\cdot 10^{1}$ & $4.36209\cdot 10^{-5}$ & $-4.32296$ & $1.9157$ & $-8.1562\cdot10^{-2}$ & $-3.28804\cdot10^{-22}$ & $-8.79518\cdot10^{-1}$\\
+    2 & $2.46839\cdot10^{1}$ & 0 & $-7.182$ & $4.73288\cdot10^{-1}$ & $1.46847$ & $-2.79603\cdot10^{1}$ & $-6.66667\cdot10^{-1}$\\
+    3 & $2.51794\cdot10^1$ & 0 & $-4.5244$ & $3.50337\cdot10^{-1}$ & $5.8747\cdot10^{-1}$ & $-8.84909$ & $-6.66667\cdot10^{-1}$\\
+    4 & $7.528980$ & 0 & $-3.7208$ & $8.71782\cdot10^{-1}$ & 0 & 0 & $-6.66667\cdot10^{-1}$\\
+    5 & $1.90876\cdot10^{1}$ & $-1.9002\cdot10^{-4}$ & $-4.2292$ & $1.6932$ & $-8.55529\cdot10^{-2}$ & $-1.35709\cdot10^{-25}$ & $-7.34513\cdot10^{-1}$\\
+    6 & $2.03787\cdot10^{1}$ & 0 & 0 & $-3.32788\cdot10^{-1}$ & $-7.00485\cdot10^{-1}$ &$9.765210\cdot10^{-2}$ & 0\\
+    \end{tabular}
+    \caption{Reaction rates in this system.}
+    \label{tab:rates}
+\end{sidewaystable}
 
 \end{document}

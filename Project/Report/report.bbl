@@ -106,6 +106,40 @@
       \verb https://www.jstor.org/stable/2885889
       \endverb
     \endentry
+    \entry{irena_popular_2004}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8fdd8435c0be9beb458de9422d3e9633}{%
+           family={{IReNA}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{fullhash}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{fullhashraw}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{bibnamehash}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{authorbibnamehash}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{authornamehash}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{authorfullhash}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{authorfullhashraw}{8fdd8435c0be9beb458de9422d3e9633}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Popular {Rates} - {The} {JINA} {Reaclib} {Database}}
+      \field{urlday}{28}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2004, 2006, 2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://reaclib.jinaweb.org/popularRates.php
+      \endverb
+      \verb{url}
+      \verb https://reaclib.jinaweb.org/popularRates.php
+      \endverb
+    \endentry
     \entry{kolb_early_2018}{book}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=e62a9ea16bd7bf8e3934f8b70c0eac35}{%
@@ -1832,6 +1866,40 @@
       \endverb
       \verb{url}
       \verb https://www.jstor.org/stable/2885889
+      \endverb
+    \endentry
+    \entry{irena_popular_2004}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=8fdd8435c0be9beb458de9422d3e9633}{%
+           family={{IReNA}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{fullhash}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{fullhashraw}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{bibnamehash}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{authorbibnamehash}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{authornamehash}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{authorfullhash}{8fdd8435c0be9beb458de9422d3e9633}
+      \strng{authorfullhashraw}{8fdd8435c0be9beb458de9422d3e9633}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Popular {Rates} - {The} {JINA} {Reaclib} {Database}}
+      \field{urlday}{28}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{year}{2004, 2006, 2017}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://reaclib.jinaweb.org/popularRates.php
+      \endverb
+      \verb{url}
+      \verb https://reaclib.jinaweb.org/popularRates.php
       \endverb
     \endentry
     \entry{kolb_early_2018}{book}{}{}
