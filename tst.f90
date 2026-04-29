@@ -1,9 +1,12 @@
-program tst
+program test
     implicit none
-    integer, parameter :: dp = selected_real_kind(30, 1000)
-    real(kind=dp) :: X
 
+    abstract interface
+        subroutine myproc(a)
+            integer :: a
+        end subroutine
+    end interface
 
-    X = exp(296.6_dp)
-    print *, X
+    procedure(myproc), pointer :: f
+
 end program
