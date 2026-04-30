@@ -39,7 +39,7 @@
 
 \bibliography{ref.bib}
 
-\title{Model of Big Bang Nucleosynthesis}
+\title{Model of the Big Bang Nucleosynthesis}
 \author{Anvel (Marguerite) de Sainte Marie d'Agneaux}
 \date{}
 
@@ -48,13 +48,13 @@
 
 \section{Introduction}
 \label{sec:intro}
-The Big Bang created a large part of the lighter elements which still exist today in the Universe. In the first few milliseconds to seconds, it created a soup of extremely light particles, such as neutrinos, positrons or electrons. These light particles paired and unpaired to form neutrons and protons during a few milliseconds, while the temperature was rapidly dropping and the Universe expanding. In these first instant, protons and neutrons were rapidly exchanging particles, becoming alternatively one or the other. Once the temperature had fallen enough for them to stabilise, the neutrons and protons also started reacting together. These slightly heavier particles paired up into even larger particles, deuterium, tritium, helium, lithium and berillium. While most of the lithium and berillium decayed into helium, traces amount were still made in these times. This was the Big Bang nucleosynthesis. The heavier elements had to wait for stars to start their own nucleosynthesis to exist \parencite{copi_big-bang_1995}.
+The Big Bang created a large part of the lighter elements which still exist today in the Universe. In the first few milliseconds to seconds, it created a soup of extremely light particles, such as neutrinos, positrons or electrons. These light particles paired and unpaired to form neutrons and protons during a few fractions of seconds, while the temperature was rapidly dropping and the Universe expanding. In these first instants, protons and neutrons were rapidly exchanging particles, becoming alternatively one or the other. Once the temperature had fallen enough for them to stabilise, they also started reacting together. These slightly heavier particles paired up into even larger particles, deuterium, tritium, helium, lithium and berillium. While most of the lithium and berillium decayed into helium, traces amount were still made in these times. This was the Big Bang nucleosynthesis. The heavier elements had to wait for stars to start their own nucleosynthesis to exist \parencite{copi_big-bang_1995}.
 
 It is however not possible to observe this event directly. The only way we have, and might ever have, to understand the workings of this nucleosynthesis is by modeling it. Knowing the possible reactions between elements and their reaction rates today, especially at extremely high temperatures, we can make models of the way the Big Bang happened and what it created \parencite{copi_big-bang_1995}. 
 
 \section{Methods}
 \label{sec:met}
-The reactions between elements which occured during the Big Bang can be modelled as a set of differential equations, in which positive terms are constructive, and negative ones are destructive. Each equation describes the evolution in time of one element, as a function of the rates of the different reactions, and the density of the elements involved in these reactions. This system can be solved using linear algebra. We will describe the algebraic process in part \nameref{subsec:der}, and the reactions, reaction rates and the other variables of the system in \nameref{subsec:bigbang}.
+The reactions between elements which occured during the Big Bang can be modelled as a set of differential equations, in which positive terms are constructive, and negative ones are destructive. Each equation describes the evolution in time of one element, as a function of the rates of the different reactions, and the density of the elements involved in these reactions. This system can be solved using linear algebra. We will describe the algebraic process in \nameref{subsec:der}, and the reactions, reaction rates and the other variables of the system in \nameref{subsec:bigbang}.
 
 \subsection{Derivation}
 \label{subsec:der}
@@ -94,7 +94,7 @@ Each equation in this system is of the shape :
 $$\frac{dn_j}{dt} = \sum\sum n_ln_k\lambda_{lk} - n_j\sum n_k,$$
 where positive terms are creative terms, which yield more of the element, and negative ones are destructive, changing the element into something else. The $\lambda$s are the reaction rates, and indicate how much of each element is created/destroyed per time steps. We also transform these equations into mass fractions instead of densities, to avoid large numbers and make calculations easier. We now have :
 $$\frac{dY_j}{dt} = \frac{1}{\rho N_A}(\sum\sum n_ln_k\lambda_{lk} - n_j\sum n_k),$$
-where $\rho$ is the total mass density in the system, and $N_A$ is Avogadro's number $N_A = 6.02\cdot 10^{23}$ $mol^{-1}$. Because of this, the total density must be in $mol/cm^{-3}$, for the equations to yield the right units.
+where $\rho$ is the total mass density in the system, and $N_A$ is Avogadro's number $N_A = 6.02\cdot 10^{23}$ $mol^{-1}$. Because of this, the total density must be in $mol/cm^{3}$, for the equations to yield the right units.
 
 The reactions used in this model are these:
 \label{eq:reacts}
@@ -111,7 +111,7 @@ The reactions used in this model are these:
 
 They were chosen as the most mentioned in literature referencing Big Bang nucleosynthesis, starting once the neutrons and protons had mostly stabilised, and not including elements heavier than helium \parencite{baring_big_2024,ryan_big_2008,navas_review_2024}. We also include neutron decay, as :
 \begin{align*}
-    &(8)    &n &\rightarrow p\\
+    &(7)    &n &\rightarrow p\\
 \end{align*}
 Those reactions are sorted by most referenced, but the actual processus of creation and destruction would be better described in this way:
 \begin{align*}
@@ -148,8 +148,8 @@ To help with the computations, each particle was given an index (see table \ref{
     \label{eq:sys}
     \centering
     \begin{split}
-        \frac{dY_0}{dt} &= \frac{1}{\rho N_A}(-\lambda_0n_0n_1 + \lambda_1n_2^2 + \lambda_2n_5n_2 + \lambda_6n_5n_1 - \lambda_4n_2n_0 + \lambda_9n_2)\\
-        \frac{dY_1}{dt} &= \frac{1}{\rho N_A}(-\lambda_0n_0n_1 + \lambda_3n_4n_2 + \lambda_5n_2^2 - \lambda_6n_5n_1 - \lambda_9n_2)\\
+        \frac{dY_0}{dt} &= \frac{1}{\rho N_A}(-\lambda_0n_0n_1 + \lambda_1n_2^2 + \lambda_2n_5n_2 + \lambda_6n_5n_1 - \lambda_4n_2n_0 + \lambda_7n_1)\\
+        \frac{dY_1}{dt} &= \frac{1}{\rho N_A}(-\lambda_0n_0n_1 + \lambda_3n_4n_2 + \lambda_5n_2^2 - \lambda_6n_5n_1 - \lambda_7n_1)\\
         \frac{dY_2}{dt} &= \frac{1}{\rho N_A}(\lambda_0n_0n_1 - \lambda_1n_2^2 - \lambda_2n_5n_2 - \lambda_3n_4n_2 - \lambda_4n_2n_0 - \lambda_5n_2^2)\\
         \frac{dY_3}{dt} &= \frac{1}{\rho N_A}(\lambda_0n_0n_1 + \lambda_4n_2n_0)\\
         \frac{dY_4}{dt} &= \frac{1}{\rho N_A}(\lambda_1n^2_2 - \lambda_3n_4n_2 + \lambda_6n_5n_1)\\
@@ -159,7 +159,7 @@ To help with the computations, each particle was given an index (see table \ref{
 \end{equation}
 
 As the Jacobian of the system is derived from this, and it is quite a long derivation, it can be found in \nameref{subsec:appA}. Finally, the reaction rates and initial densities are the only elements missing from this system. The reaction rates are taken from \cite{wagoner_synthesis_1967}, except for the neutron decay into protons, which is taken as the inverse of its half-life, about 888 seconds \parencite{navas_review_2024}. 
-\begin{table}
+\begin{table}[hb!]
     \begin{tabular}{c|c}
     Reaction & Rate\\
     \hline
@@ -170,7 +170,7 @@ As the Jacobian of the system is derived from this, and it is quite a long deriv
     (4) & $2.23\cdot 10^3 \cdot T_9^{-2/3} \cdot \exp(-3.72\cdot T_9^{-1/3}) \cdot (1 + 0.112\cdot T_9^{1/3} + 3.38\cdot T_9^{2/3} + 2.65\cdot T_9)$\\
     (5) & $3.9\cdot10^8 \cdot T_9^{-2/3} \cdot \exp(-4.26\cdot T_9^{-1/3}) \cdot (1 + 0.0979 \cdot T_9^{1/3} + 0.642 \cdot T_9^{2/3} + 0.440 \cdot T_9)$\\
     (6) & $7.06\cdot10^8$\\
-    (7) & $1/800$\\
+    (7) & $1/888$\\
 \end{tabular}
 \caption{Reaction rates in the system}
 \label{tab:rates}
@@ -185,9 +185,9 @@ Those rates depend on the temperature of the system and on the total density. At
     T(t) = \frac{1.5\cdot10^{10}}{t^{1/2}}
 \end{equation}
 
-The time range was from t = 1s to $t=6\cdot10^5s$. This is more than the time it took to form helium according to current models, but this is about the time it took for our model to stabilise. An end closer to a 100s would be better, as that corresponds to the time when the amount of helium mostly stabilised \parencite{kolb_early_2018}. The reasons why this might not have worked in this model are discussed in \nameref{sec:disc}.
+The time range was from t = 1s to $t=6\cdot10^5s$. This is more than the time it took to form helium according to current models, but this is about the time it took for our model to stabilise. An end closer to t = 100s would have been more accurate \parencite{kolb_early_2018}. The reasons why this might not have worked in this model are discussed in \nameref{sec:disc}.
 
-The last element missing to run this model is the initial densities. As they are not yet formed at t=0.1, we can already know that the number densities of anything larger than the neutrons and protons will be 0. The only exception could be the $\gamma$ particles, but as they are not destroyed, only created here, we can still set it to 0 without affecting our system. Remains the proton and neutron density. We set them to be $n_0 = 0.85$ and $n_1 = 0.15$ of the total density, as the ratio of proton to neutron was about seven to one \parencite{schramm_big-bang_1998}. The total density was about $2\cdot10^{-31} g/cm^3$ \parencite{copi_big-bang_1995}, which, as the molar mass of neutron and proton is about one, gives us $\rho = 2\cdot10^{-31}$.
+The last element missing to run this model is the initial densities. As they are not yet formed at t = 1, we can already set the number densities of anything larger than the neutrons and protons to 0. The only exception could be the $\gamma$ particles, but as they are not destroyed, only created here, we can still set it to 0 without affecting our system. Remains the proton and neutron density. We set them to be $n_0 = 0.85$ and $n_1 = 0.15$ of the total density, as the ratio of proton to neutron was about seven to one \parencite{schramm_big-bang_1998}. The total density was about $2\cdot10^{-31} g/cm^3$ \parencite{copi_big-bang_1995}, which, as the molar mass of neutron and proton is about one, gives us $\rho = 2\cdot10^{-31}$ $mol/cm^3$.
 
 \section{Results}
 \label{sec:res}
@@ -213,7 +213,10 @@ We can see the results of the simulation on figure \ref{fig:sim}. On it, we can 
     \label{fig:frompitrou}
 \end{figure}
 
-Comparing our results to those 
+Comparing our results to those from \cite{pitrou_precision_2018}, which is a highly precise and detailed recent big bang nucleosynthesis model, we can observe a number of similarities. The proton/hydrogen amount decreases slighlty, while the neutron one drops more sharply. They did not simulate $\gamma$, but as ours is only modelled as a product and not part of any other reaction, it is not very accurate. Deuterium increases at first, before dropping. We can see the beginning of that drop in our simulation, and similarly for tritium. The 3-helium and 4-helium abundances also fit very well, climbing sharply at first, before 4-helium stabilises at a higher abundance than 3-helium. This is logical as 3-helium is destroyed in some reactions while 4-helium is only a product.
+
+The quantity of 4-helium also looks relatively right, as most of the helium which remains today originates from the Big Bang. Helium here should be about 10\% of the hydrogen amount, in number density. Given that it looks to be around $10^{13}$ and hydrogen/proton seems to be at $10^{14}$, this seems to be the case.
+
 
 \subsection{Solving the system differently}
 In this model, we solved the equation system by deriving the Jacobian by hand, analytically, then solving the system using matrix inversion. It is also possible to find the Jacobian at each time step numerically. Both methods have their uses in different situations. 
@@ -233,19 +236,22 @@ When a numerical solution is used, one must choose a step size after which the f
 \section{Discussion and Conclusion}
 \label{sec:disc}
 
-While this model represents the bare bones of the first part of the Big Bang nucleosynthesis, the difference shown between other models, this model, and observed densities can be explained by the simplifications made here. In particular, a number of reactions were not included. \cite{wagoner_synthesis_1967} uses more than eighty reactions and their reverse, for example. We also do not model any reverse reaction, which influences the densities we find.
+While this model represents the bare bones of the first part of the Big Bang nucleosynthesis, and seems to fit well with previous models and observed quantities, the differences shown can be explained by the simplifications made here. In particular, a number of reactions were not included. \cite{wagoner_synthesis_1967} uses more than eighty reactions and their reverse. \cite{pitrou_precision_2018} includes 400 and their reverse. Beyond the much smaller number, we also do not model any reverse reaction, which influences the densities we find. This low number of reaction is probably also the cause of the time delay mentioned in part \ref{subsec:bigbang}. As less elements are reacting and being created or destroyed than there should be, the evolution takes longer.
 
-One phenomenum which is important in Big Bang nucleosynthesis but was not included here is the expansion, which reduces density. We know the dependence of the expansion rate of the Universe on time, the relation between temperature and time, and the relation between temperature and the expansion rate. We also know that $\rho \propto 1/V$ and $V \propto R^3$. Using the equation we have for the temperature, we can set :
+One parameter which is important in Big Bang nucleosynthesis but was not included here is the expansion, which reduces density. We know the dependence of the expansion rate of the Universe on time, the relation between temperature and time, and the relation between temperature and the expansion rate. We also know that $\rho \propto 1/V$ and $V \propto R^3$. Using the equation we have for the temperature, we can set :
 $$R(t) = \frac{\sqrt{t}}{4\cdot10^{10}}$$
 $$\rho(t) = \frac{3\rho_0}{4\pi R(t)}$$
 
+Thus, a future improvement on this model should in particular implement a better adaptative step-size, more reactions and the expansion of the Universe. In this case, the method of solving the system should be shifted to numerical, as additional reactions and element would make the analytical solution slightly too complex.
+
+\vspace{1cm}
 
 
-
-\emph{The code used and a LAtex version of this report can be found at \hyperlink{https://github.com/AlbanSMA/CompAstroProject2/tree/edit3}, in "Project"}
+\emph{The code used and a LAtex version of this report can be found \href{https://github.com/AlbanSMA/CompAstroProject2/tree/edit3}{here}, in "Project"}
 
 \printbibliography
 
+\pagebreak
 \section{Appendices}
 \label{sec:app}
 
@@ -258,8 +264,8 @@ The terms in the first row are :
 \begin{equation*}
     \centering
     \begin{split}
-        J_{00} &= -\lambda_0n_1 -\lambda_4n_2\\
-        J_{01} &= -\lambda_0n_0 +\lambda_6n_5\\
+        J_{00} &= -\lambda_0n_1 -\lambda_4n_2 +\lambda_7n_1\\
+        J_{01} &= -\lambda_0n_0 +\lambda_6n_5 + \lambda_7\\
         J_{02} &= 2\lambda_1n_2 +\lambda_2n_5 - \lambda_4n_0\\
         J_{03} &= 0\\
         J_{04} &= 0\\
@@ -273,7 +279,7 @@ Second row:
     \centering
     \begin{split}
         J_{10} &= -\lambda_0n_1\\
-        J_{11} &= -\lambda_0n_0 - \lambda_6n_5\\
+        J_{11} &= -\lambda_0n_0 - \lambda_6n_5 - \lambda_7\\
         J_{12} &= \lambda_3n_4 + 2\lambda_5n_2\\
         J_{13} &= 0\\
         J_{14} &= \lambda_3n_2\\
