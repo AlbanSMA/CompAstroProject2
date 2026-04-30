@@ -1,21 +1,21 @@
-[0] Config.pm:328> INFO - This is Biber 2.21
-[1] Config.pm:331> INFO - Logfile is 'report.blg'
-[598] biber-MSWIN64:342> INFO - === 
-[754] Biber.pm:421> INFO - Reading 'report.bcf'
-[1431] Biber.pm:1002> INFO - Found 7 citekeys in bib section 0
-[1515] Biber.pm:4487> INFO - Processing section 0
-[1564] Biber.pm:4678> INFO - Looking for bibtex file 'ref.bib' for section 0
-[1789] bibtex.pm:1713> INFO - LaTeX decoding ...
-[1916] bibtex.pm:1519> INFO - Found BibTeX data source 'ref.bib'
-[4299] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[4299] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[4306] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
-[4306] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[4759] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[4760] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[4760] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
-[4761] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[4921] bbl.pm:676> INFO - Writing 'report.bbl' with encoding 'UTF-8'
-[8094] bbl.pm:779> INFO - Output to report.bbl
-[8095] Biber.pm:132> WARN - Duplicate entry key: 'navas_review_2024' in file 'ref.bib', skipping ...
-[8096] Biber.pm:134> INFO - WARNINGS: 1
+[1] Config.pm:328> INFO - This is Biber 2.21
+[2] Config.pm:331> INFO - Logfile is 'report.blg'
+[778] biber-MSWIN64:342> INFO - === 
+[1288] Biber.pm:421> INFO - Reading 'report.bcf'
+[3389] Biber.pm:1002> INFO - Found 8 citekeys in bib section 0
+[3630] Biber.pm:4487> INFO - Processing section 0
+[3856] Biber.pm:4678> INFO - Looking for bibtex file 'ref.bib' for section 0
+[4978] bibtex.pm:1713> INFO - LaTeX decoding ...
+[5360] bibtex.pm:1519> INFO - Found BibTeX data source 'ref.bib'
+[12312] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[12312] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[12313] Biber.pm:4307> INFO - Sorting list 'apa/apasortcite//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+[12313] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[13671] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[13673] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[13674] Biber.pm:4307> INFO - Sorting list 'apa/global//global/global/global' of type 'entry' with template 'apa' and locale 'en-US'
+[13675] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[14081] bbl.pm:676> INFO - Writing 'report.bbl' with encoding 'UTF-8'
+[22258] bbl.pm:779> INFO - Output to report.bbl
+[22261] Biber.pm:132> WARN - Duplicate entry key: 'navas_review_2024' in file 'ref.bib', skipping ...
+[22262] Biber.pm:134> INFO - WARNINGS: 1

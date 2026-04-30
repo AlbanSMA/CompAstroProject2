@@ -1,12 +1,14 @@
 # Fdb version 4
-["biber report"] 1777522348.18708 "report.bcf" "report.bbl" "report" 1777522383.5016 0
-  "ref.bib" 1777521704 12842 e0ad5e21522814df4e8a7e54ed5f6eb7 ""
-  "report.bcf" 1777522381 134873 0bbc830281899f11ea7699bd0f61c217 "pdflatex"
+["biber report"] 1777587551.45832 "report.bcf" "report.bbl" "report" 1777587689.6071 0
+  "ref.bib" 1777587386 13432 79d4428251911628cf2c6b0740273142 ""
+  "report.bcf" 1777587688 135027 c3ef6c7a3a0da8234b0bafaf217709af "pdflatex"
   (generated)
   "report.bbl"
   "report.blg"
   (rewritten before read)
-["pdflatex"] 1777522374.13222 "c:/Users/User/Documents/Documents/University/Master_SU/Year_1/IIB/CompAstro/Projects/Project2/Project/Report/report.tex" "report.pdf" "report" 1777522383.51139 0
+["pdflatex"] 1777587679.53679 "c:/Users/User/Documents/Documents/University/Master_SU/Year_1/IIB/CompAstro/Projects/Project2/Project/Report/report.tex" "report.pdf" "report" 1777587689.61033 0
+  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Project//Plots//BBNmodel.pdf" 1777566523 20041 43f67e40a7bae3bb2c0294b00ee59255 ""
+  "C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Project//Plots//FromPitrou.png" 1777587206 299785 ae4f28fc3b910cd7a5bd0c81e8456342 ""
   "C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1777374769 84158 d77284a6843bde1e4b9764f09fb2e89e ""
   "C:/Users/User/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1776771118 13349829 4a36b8ce873eea7331d01262fddc519c ""
   "C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
@@ -111,12 +113,12 @@
   "C:/Users/User/AppData/Local/Programs/MiKTeX/tex/latex/tools/verbatim.sty" 1761901070 7532 26d26e9d8f2ca784270d5da8ec7d102b ""
   "C:/Users/User/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/User/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
-  "c:/Users/User/Documents/Documents/University/Master_SU/Year_1/IIB/CompAstro/Projects/Project2/Project/Report/report.tex" 1777522345 19988 c83e764a4d32348dad0cc62554b325b9 ""
-  "report.aux" 1777522381 6097 d94daea8064e6cd40381d0dfd6313508 "pdflatex"
-  "report.bbl" 1777522365 146687 791c021c4c305b4df712e04ae1f93151 "biber report"
-  "report.out" 1777522381 1419 2e1b3bc394ea3ee3d2559df69a011ba2 "pdflatex"
-  "report.run.xml" 1777522381 2434 18a631e07b47c578db26167eed177947 "pdflatex"
-  "report.tex" 1777522345 19988 c83e764a4d32348dad0cc62554b325b9 ""
+  "c:/Users/User/Documents/Documents/University/Master_SU/Year_1/IIB/CompAstro/Projects/Project2/Project/Report/report.tex" 1777587668 21742 de45229a8e6e4a670a38ef2fe521ee88 ""
+  "report.aux" 1777587688 7599 fa442833e09e4c561fd9df3d43b99e1b "pdflatex"
+  "report.bbl" 1777587592 151955 33d2c8d46b26cc16a84853f4502bb1b9 "biber report"
+  "report.out" 1777587688 1419 2e1b3bc394ea3ee3d2559df69a011ba2 "pdflatex"
+  "report.run.xml" 1777587688 2434 18a631e07b47c578db26167eed177947 "pdflatex"
+  "report.tex" 1777587668 21742 de45229a8e6e4a670a38ef2fe521ee88 ""
   (generated)
   "report.aux"
   "report.bcf"

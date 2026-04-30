@@ -31,7 +31,7 @@ program main
     
     ! Parameters for the matrix
     integer :: IPIV(7)
-    integer, parameter :: N = 7, NRHS = 0, LDA = 7, LDB = 7, steps=1000000
+    integer, parameter :: N = 7, NRHS = 0, LDA = 7, LDB = 7, steps=100000
     integer :: INFO, i, k, size
 
     ! Variables : 
@@ -59,8 +59,8 @@ program main
     NA = 6.02e23
     den = 1/(rho*NA)
 
-    n0 = 0.15e5*den
-    n1 = 0.85e5*den
+    n0 = 0.85*den
+    n1 = 0.15*den
     n2 = 0
     n3 = 0
     n4 = 0
@@ -95,10 +95,9 @@ program main
     ! Range of t and first dt
         ! t and dt
     tstart = 1.
-    tstop = 6e2
-        
-        ! get first dt
-    dt = 1e-2
+    tstop = 6e5
+
+    dt = 1e-3
 
 !-----------------------------------------------------------------------------
     ! Initialise for the loop
@@ -113,19 +112,19 @@ program main
     i = 2
     ! Loop
     iloop : do while (time < tstop)
+
+        ! Reset A_prime and dt
+        A_prime = 1e5
         ! Adaptative time steps
         whileloop : do while (sum(A_prime) > 8.)
-            dt = 0.99*dt
+            dt = 0.98*dt
             time = lst_dt(i-1) + dt
 
             call get_T(time, temp)
 
-            if (i/=2) then
-                call get_rho(time, rho, rho_0)
-            end if
-
             ! Get the reaction rates
             call get_lam(rho, lam, temp)
+            lam = lam !*1e13 -> added to accelerate the nucleosynthesis
 
             ! Get A and its Jacobian
             call make_A(new_ns, lam, A)
@@ -141,20 +140,24 @@ program main
             end if
         end do whileloop
 
+        print*, i
+        print*, sum(A_prime)
+
+        A_min = A
 
         ! Solve the matrix
-        call dgesv(N, NRHS, A_prime, LDA, IPIV, A, LDB, INFO)
+        call dgesv(N, NRHS, A_prime, LDA, IPIV, A_min, LDB, INFO)
         if (INFO /= 0) then
             print*, "Unsolvable matrix"
             stop
         end if
 
         ! get d = ns_(i+1) - ns from the result, which is A
-        d = A
+        d = A_min
+        print*, d
 
         ! new_ns is ns + d
-        new_ns = (ns + d)
-        print*, d
+        new_ns = ns + d
         print*, new_ns
 
         ! store the results in a list for later
@@ -177,7 +180,7 @@ program main
 !-----------------------------------------------------------------------------
     ! Now save this data to a text file
     open(action="write", file=OUT_FILE, newunit=fu, status="replace")
-    do i=1, size
+    do i=1, steps/2
         write(fu,*) lst_dt(i), lst_nsdt(:,i)
     end do
     close(fu)

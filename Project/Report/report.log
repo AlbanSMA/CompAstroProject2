@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.21)  30 APR 2026 06:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.21)  1 MAY 2026 00:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -654,31 +654,32 @@ Package caption Info: End \AtBeginDocument code.
 [1
 
 {C:/Users/User/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2] [3]
-Overfull \hbox (46.38316pt too wide) in paragraph at lines 162--173
+Overfull \hbox (46.38316pt too wide) in paragraph at lines 163--175
 [][] 
  []
 
-[4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 220--221
-\OT1/cmr/m/n/12 den-si-ties we find.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 220--221
-
- []
-
-[6]
-Overfull \hbox (13.9829pt too wide) in paragraph at lines 226--226
+[4]
+<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Project//Plots//BBNmodel.pdf, id=104, 462.52798pt x 346.89601pt>
+File: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Project//Plots//BBNmodel.pdf Graphic file (type pdf)
+<use C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Project//Plots//BBNmodel.pdf>
+Package pdftex.def Info: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Project//Plots//BBNmodel.pdf  used on input line 202.
+(pdftex.def)             Requested size: 437.50787pt x 328.14664pt.
+<C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Project//Plots//FromPitrou.png, id=106, 405.515pt x 432.11438pt>
+File: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Project//Plots//FromPitrou.png Graphic file (type png)
+<use C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Project//Plots//FromPitrou.png>
+Package pdftex.def Info: C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Project//Plots//FromPitrou.png  used on input line 211.
+(pdftex.def)             Requested size: 437.50787pt x 466.22162pt.
+ [5] [6 <C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Project//Plots//BBNmodel.pdf>] [7 <C://Users//User//Documents//Documents//University//Master_SU//Year_1//IIB//CompAstro//Projects//Project2//Project//Plots//FromPitrou.png>]
+Overfull \hbox (13.9829pt too wide) in paragraph at lines 248--248
 [][]\OT1/cmr/m/n/12 Kolb, E. (1990). \OT1/cmr/m/it/12 The Early Uni-verse\OT1/cmr/m/n/12 . CRC Press. $https : / / doi . org / 10 . 1201 / 9780429492860$
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 255--256
 
  []
 
-[7] [8] [9] (report.aux)
+[9] [10] [11] (report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
@@ -690,20 +691,20 @@ Package logreq Info: Writing requests to 'report.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 19495 strings out of 467690
- 349250 string characters out of 5415450
- 1314747 words of memory out of 5000000
- 48334 multiletter control sequences out of 15000+600000
+ 19530 strings out of 467690
+ 351808 string characters out of 5415450
+ 1315239 words of memory out of 5000000
+ 48364 multiletter control sequences out of 15000+600000
  634354 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 63i,15n,69p,1467b,5052s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 63i,15n,69p,1466b,5052s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{https://github.com/AlbanSMA/CompAstroProject2/tree/edit3} has been referenced but does not exist, replaced by a fixed one
 
 <C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on report.pdf (9 pages, 203548 bytes).
+Output written on report.pdf (11 pages, 443132 bytes).
 PDF statistics:
- 196 PDF objects out of 1000 (max. 8388607)
- 34 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 263 PDF objects out of 1000 (max. 8388607)
+ 39 named destinations out of 1000 (max. 500000)
+ 99 words of extra memory for PDF output out of 10000 (max. 10000000)
 

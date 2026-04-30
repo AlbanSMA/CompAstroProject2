@@ -1655,6 +1655,70 @@
       \verb https://link.aps.org/doi/10.1103/PhysRevD.110.030001
       \endverb
     \endentry
+    \entry{pitrou_precision_2018}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=fbf70ec8b88afa41c43992f8cfb10b66}{%
+           family={Pitrou},
+           familyi={P\bibinitperiod},
+           given={Cyril},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4c0798dc866fb7ca7107e6c83c3b69c0}{%
+           family={Coc},
+           familyi={C\bibinitperiod},
+           given={Alain},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2c608dc353a581fa276bc9c7dd9d38bd}{%
+           family={Uzan},
+           familyi={U\bibinitperiod},
+           given={Jean-Philippe},
+           giveni={J\bibinithyphendelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e36bf56c02dfb17695260931531dcf69}{%
+           family={Vangioni},
+           familyi={V\bibinitperiod},
+           given={Elisabeth},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2cbfb57c871383ccb84d92f80e3e5de8}
+      \strng{fullhash}{ab267e0b212ed79e5fcde866f71751b9}
+      \strng{fullhashraw}{ab267e0b212ed79e5fcde866f71751b9}
+      \strng{bibnamehash}{ab267e0b212ed79e5fcde866f71751b9}
+      \strng{authorbibnamehash}{ab267e0b212ed79e5fcde866f71751b9}
+      \strng{authornamehash}{2cbfb57c871383ccb84d92f80e3e5de8}
+      \strng{authorfullhash}{ab267e0b212ed79e5fcde866f71751b9}
+      \strng{authorfullhashraw}{ab267e0b212ed79e5fcde866f71751b9}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0370-1573}
+      \field{journaltitle}{Physics Reports}
+      \field{series}{Precision big bang nucleosynthesis with improved {Helium}-4 predictions}
+      \field{title}{Precision big bang nucleosynthesis with improved {Helium}-4 predictions}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{volume}{754}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 66}
+      \range{pages}{66}
+      \verb{doi}
+      \verb 10.1016/j.physrep.2018.04.005
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0370157318301054
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0370157318301054
+      \endverb
+    \endentry
     \entry{ryan_big_2008}{manual}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=b411aba93f08bc7bd67987f53e999b7f}{%
@@ -3435,6 +3499,70 @@
       \endverb
       \verb{url}
       \verb https://link.aps.org/doi/10.1103/PhysRevD.110.030001
+      \endverb
+    \endentry
+    \entry{pitrou_precision_2018}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=fbf70ec8b88afa41c43992f8cfb10b66}{%
+           family={Pitrou},
+           familyi={P\bibinitperiod},
+           given={Cyril},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4c0798dc866fb7ca7107e6c83c3b69c0}{%
+           family={Coc},
+           familyi={C\bibinitperiod},
+           given={Alain},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2c608dc353a581fa276bc9c7dd9d38bd}{%
+           family={Uzan},
+           familyi={U\bibinitperiod},
+           given={Jean-Philippe},
+           giveni={J\bibinithyphendelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e36bf56c02dfb17695260931531dcf69}{%
+           family={Vangioni},
+           familyi={V\bibinitperiod},
+           given={Elisabeth},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{2cbfb57c871383ccb84d92f80e3e5de8}
+      \strng{fullhash}{ab267e0b212ed79e5fcde866f71751b9}
+      \strng{fullhashraw}{ab267e0b212ed79e5fcde866f71751b9}
+      \strng{bibnamehash}{ab267e0b212ed79e5fcde866f71751b9}
+      \strng{authorbibnamehash}{ab267e0b212ed79e5fcde866f71751b9}
+      \strng{authornamehash}{2cbfb57c871383ccb84d92f80e3e5de8}
+      \strng{authorfullhash}{ab267e0b212ed79e5fcde866f71751b9}
+      \strng{authorfullhashraw}{ab267e0b212ed79e5fcde866f71751b9}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0370-1573}
+      \field{journaltitle}{Physics Reports}
+      \field{series}{Precision big bang nucleosynthesis with improved {Helium}-4 predictions}
+      \field{title}{Precision big bang nucleosynthesis with improved {Helium}-4 predictions}
+      \field{urlday}{30}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{volume}{754}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 66}
+      \range{pages}{66}
+      \verb{doi}
+      \verb 10.1016/j.physrep.2018.04.005
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0370157318301054
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0370157318301054
       \endverb
     \endentry
     \entry{ryan_big_2008}{manual}{}{}

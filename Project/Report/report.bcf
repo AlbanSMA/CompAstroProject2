@@ -3082,8 +3082,10 @@
     <bcf:citekey order="7" intorder="1">kolb_early_2018</bcf:citekey>
     <bcf:citekey order="8" intorder="1">schramm_big-bang_1998</bcf:citekey>
     <bcf:citekey order="9" intorder="1">copi_big-bang_1995</bcf:citekey>
-    <bcf:citekey order="10" intorder="1">wagoner_synthesis_1967</bcf:citekey>
-    <bcf:citekey order="11" intorder="1">wagoner_synthesis_1967</bcf:citekey>
+    <bcf:citekey order="10" intorder="1">pitrou_precision_2018</bcf:citekey>
+    <bcf:citekey order="11" intorder="1">pitrou_precision_2018</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">wagoner_synthesis_1967</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">wagoner_synthesis_1967</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="apa">
