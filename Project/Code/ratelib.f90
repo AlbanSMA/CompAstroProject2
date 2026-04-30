@@ -3,7 +3,7 @@ module rates
       use interfaces
       implicit none
 
-contains
+      contains
 ! torch rates
 ! li7(t,n)   a(an,g)    be9(p,d)    be9(p,n)    b10(a,n)   b11(a,n)
 ! n14(p,a)   c11(p,g)   c12(a,n)    c13(a,n)    c13(p,n)   c14(a,g)
@@ -55,7 +55,7 @@ contains
 
 
 
-      subroutine tfactors(temp)
+subroutine tfactors(temp)
       include 'implno.dek'
       include 'tfactors.dek'
 
@@ -63,7 +63,7 @@ contains
 ! this routine must be called before any of the rates are called
 
 ! declare the pass
-      double precision temp
+      real(8), intent(in) :: temp
 
 ! all these are in common block
 
@@ -151,10 +151,12 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,bb,dbb,cc,dcc,dd,ddd
+      call tfactors(temp)
 
 ! he4(an,g)be9
       aa  = 1.0d0 + 0.344*t9
@@ -197,7 +199,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -248,7 +251,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb,cc,dcc,zz,dzz
@@ -301,7 +305,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,q1
@@ -337,7 +342,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -393,7 +399,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,bb,dbb,cc,dcc,dd,ddd, &
@@ -451,7 +458,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -502,7 +510,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb
@@ -540,7 +549,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -597,7 +607,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb
@@ -635,7 +646,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -692,7 +704,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb,cc,dcc,zz,dzz
@@ -739,7 +752,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -793,7 +807,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,bb,dbb,cc,dcc,dd,ddd, &
@@ -851,7 +866,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb
@@ -888,7 +904,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb,cc,dcc,zz,dzz,q1
@@ -934,7 +951,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,t9a,aa,daa,bb,dbb
@@ -978,7 +996,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb
@@ -1018,7 +1037,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -1071,7 +1091,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -1127,7 +1148,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -1201,7 +1223,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,bb,dbb,cc,dcc,dd, &
@@ -1260,7 +1283,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -1356,7 +1380,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,bb,dbb,cc,dcc,dd, &
@@ -1439,7 +1464,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,bb,dbb,cc,dcc,dd,ddd, &
@@ -1507,7 +1533,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -1571,7 +1598,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -1634,7 +1662,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb
@@ -1674,7 +1703,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,q1
@@ -1715,7 +1745,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa, &
@@ -1757,7 +1788,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -1830,7 +1862,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -1929,7 +1962,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc
@@ -1992,7 +2026,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -2101,7 +2136,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -2182,7 +2218,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -2250,7 +2287,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -2339,7 +2377,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -2445,7 +2484,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa
@@ -2482,7 +2522,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -2579,7 +2620,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -2629,7 +2671,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -2693,7 +2736,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb
@@ -2734,7 +2778,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -2829,7 +2874,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,bb,dbb,cc,dcc, &
@@ -2881,7 +2927,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -2944,7 +2991,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -3004,7 +3052,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -3065,7 +3114,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc
@@ -3111,7 +3161,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -3178,7 +3229,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,zz, &
@@ -3234,7 +3286,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -3296,7 +3349,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -3363,7 +3417,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,zz, &
@@ -3420,7 +3475,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -3474,7 +3530,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -3531,7 +3588,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb
@@ -3576,7 +3634,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -3625,7 +3684,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -3717,7 +3777,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -3775,7 +3836,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -3836,7 +3898,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision aa,daa,bb,dbb,cc,dcc, &
@@ -3844,6 +3907,7 @@ contains
                        c1,c2
       parameter        (c1 = 1.0d0/5.93d0, &
                         c2 = 0.98d0/885.7d0)
+      call tfactors(temp)
 
 
 ! free decay of neutrons, n(e-nu)p and p(e-,nu)n
@@ -3898,7 +3962,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc
@@ -3940,7 +4005,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,c1
@@ -3974,11 +4040,12 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb
-
+      call tfactors(temp)
 
 
 ! d(d,p)t
@@ -4017,11 +4084,13 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb
-
+      call tfactors(temp)
+      !print*,t9
 
 
 ! d(d,n)he3
@@ -4059,10 +4128,12 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa
+      call tfactors(temp)
 
 
 ! t(p,n)he3
@@ -4095,7 +4166,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb
@@ -4136,7 +4208,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb
@@ -4178,11 +4251,13 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc,q1
       parameter        (q1 = 1.0d0/0.0144d0)
+      call tfactors(temp)
 
 
 ! t(d,n)he4 ; the "dt" reaction
@@ -4224,7 +4299,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb
@@ -4266,12 +4342,14 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc,q1
       parameter        (q1 = 1.0d0/0.099225d0)
 
+      call tfactors(temp)
 
 ! he3(d,p)he4
       aa  = 5.86e+10 * t9i23 * exp(-7.181*t9i13 - t92*q1)
@@ -4311,7 +4389,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,t9a,dt9a, &
@@ -4359,7 +4438,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,t9a,dt9a, &
@@ -4407,7 +4487,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb
@@ -4446,7 +4527,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc
@@ -4498,7 +4580,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -4556,7 +4639,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -4606,7 +4690,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt
@@ -4641,7 +4726,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb
@@ -4681,7 +4767,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt
@@ -4714,7 +4801,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt
@@ -4749,7 +4837,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt
@@ -4782,7 +4871,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt
@@ -4815,7 +4905,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,bb,dbb,cc,dcc, &
@@ -4875,7 +4966,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb
@@ -4919,7 +5011,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa
@@ -4957,7 +5050,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt
@@ -4990,7 +5084,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt
@@ -5022,7 +5117,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt
@@ -5055,7 +5151,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -5107,7 +5204,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -5160,7 +5258,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt
@@ -5193,7 +5292,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -5245,7 +5345,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -5293,7 +5394,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -5345,7 +5447,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -5400,7 +5503,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -5450,7 +5554,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb
@@ -5490,7 +5595,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -5560,7 +5666,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -5613,7 +5720,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 
 ! c11(n,a)be8=>2a   get a real rate in here
@@ -5642,7 +5750,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -5709,7 +5818,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -5762,7 +5872,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -5819,10 +5930,12 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb
+      call tfactors(temp)
 
 
 ! p(p,e+nu)d
@@ -5907,7 +6020,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb
@@ -5950,10 +6064,13 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa
+      
+      call tfactors(temp)
 
 
 ! p(n,g)d
@@ -6005,10 +6122,12 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb
+      call tfactors(temp)
 
 
 ! d(p,g)he3
@@ -6045,7 +6164,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt
@@ -6079,7 +6199,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+      real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb
@@ -6121,7 +6242,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,t9a,dt9a, &
@@ -6211,7 +6333,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb
@@ -6253,7 +6376,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc,dd,ddd, &
@@ -6346,7 +6470,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision lntwo,halflife,con
@@ -6378,7 +6503,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -6431,7 +6557,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision lntwo,halflife,con
@@ -6459,7 +6586,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -6511,7 +6639,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -6562,7 +6691,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision lntwo,halflife,con
@@ -6592,7 +6722,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -6648,7 +6779,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -6704,7 +6836,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -6764,7 +6897,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -6816,7 +6950,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -6899,7 +7034,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -6975,7 +7111,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -7034,7 +7171,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -7093,7 +7231,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision lntwo,halflife,con
@@ -7123,7 +7262,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision lntwo,halflife,con
@@ -7152,7 +7292,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -7215,7 +7356,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -7275,7 +7417,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision lntwo,halflife,con
@@ -7305,7 +7448,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -7362,7 +7506,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -7431,7 +7576,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -7484,7 +7630,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision lntwo,halflife,con
@@ -7513,7 +7660,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -7569,7 +7717,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,bb,dbb, &
@@ -7639,7 +7788,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb, &
@@ -7704,7 +7854,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision lntwo,halflife,con
@@ -7733,7 +7884,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,bb,dbb, &
@@ -7805,7 +7957,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -7880,7 +8033,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,r2abe,dr2abedt,rbeac, &
@@ -7989,7 +8143,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,t9a,dt9a,t9a13,dt9a13,t9a56,dt9a56, &
@@ -8186,7 +8341,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,t9a,dt9a,t9a13,dt9a13,t9a23,dt9a23, &
@@ -8389,7 +8545,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt
@@ -8618,7 +8775,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,term1,dterm1,aa,daa,bb,dbb, &
@@ -8671,7 +8829,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,term1,dterm1,aa,daa,bb,dbb, &
@@ -8751,7 +8910,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb,cc,dcc,dd,ddd,ee,dee, &
@@ -8814,7 +8974,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb,cc,dcc,dd,ddd,ee,dee, &
@@ -8890,7 +9051,8 @@ contains
       include 'tfactors.dek'
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,rev,drevdt,aa,daa,bb,dbb,cc,dcc, &
@@ -8952,7 +9114,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,bb,dbb,cc,dcc,dd,ddd,ee,dee, &
@@ -9031,7 +9194,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,rev,drevdt,z,z2,z3
@@ -9076,7 +9240,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,rev,drevdt,z,z2,z3
@@ -9122,7 +9287,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,rev,drevdt,z,z2,z3
@@ -9168,7 +9334,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,rev,drevdt,z,z2,z3
@@ -9214,7 +9381,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,rev,drevdt,z,z2,z3
@@ -9260,7 +9428,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,rev,drevdt
@@ -9301,7 +9470,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,rev,drevdt,z,z2,z3
@@ -9347,7 +9517,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,rev,drevdt,z,z2,z3
@@ -9393,7 +9564,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,rev,drevdt,z,z2,z3
@@ -9439,7 +9611,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,rev,drevdt,z,z2,z3
@@ -9485,7 +9658,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,rev,drevdt,z,z2,z3
@@ -9531,7 +9705,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,rev,drevdt,z,z2,z3
@@ -9578,7 +9753,8 @@ contains
 
 
 ! declare the pass
-      double precision temp,den,fr,dfrdt,dfrdd,rr,drrdt,drrdd
+      real(8), intent(in)  :: temp, den
+  real(8), intent(out) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
 
 ! locals
       double precision term,dtermdt,aa,daa,rev,drevdt,z,z2,z3

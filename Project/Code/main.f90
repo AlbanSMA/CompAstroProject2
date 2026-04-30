@@ -11,67 +11,62 @@ program main
         ! LDA, LDB : dim 1 of J, dim 2 of A
         ! lam : list of reaction rates
         ! steps : number of steps want to run for
-        ! J*d = -A
+        ! A'(Y_i)*d = -A(Y_i)
+        ! A'(Y_i) = abs(I - dt*J(Y_i))
 
 
         ! n0, n1, n2, n3, n4, n5, n6 : initial values of n
         ! dt : size of a step, in seconds
-        ! T9 : list of temperatures over 10^9
-        ! rho_b : density of baryons
+        ! temp : temperature
+        ! rho, rho_0 : total density
         ! lst_nsdt : array to store ns after every step
         ! lst_dt : array to store t for saving the data
 
         ! OUT_FILE and fu : file and opener to save the data
 
-    ! Force quadruple precision for large numbers
-    !integer, parameter :: dp = selected_real_kind(20, 900)
 
-
-    ! Matrices initialisation
-    real :: J(7, 7), Id(7,7), A_prime(7,7), A_min(7)
-    real :: A(7), d(7), ns(7), new_ns(7), lam(7)!, X(7)
+    ! Matrices initialisation, density and reaction rates
+    real(8) :: J(7, 7), Id(7,7), A_prime(7,7), A_min(7)
+    real(8) :: A(7), d(7), ns(7), new_ns(7), lam(8)
     
     ! Parameters for the matrix
     integer :: IPIV(7)
-    integer, parameter :: N = 7, NRHS = 0, LDA = 7, LDB = 7
-    integer :: INFO, i, k
+    integer, parameter :: N = 7, NRHS = 0, LDA = 7, LDB = 7, steps=1000000
+    integer :: INFO, i, k, size
 
     ! Variables : 
-    ! number of steps (=resolution)
-    ! number densities, dt, Temperature
-    ! top and bottom temperature
-    ! smst, div and tstep are to define arrays of dt and T9 later
-    integer, parameter :: steps = 5000
-    real :: n0, n1, n2, n3, n4, n5, n6
-    !real :: x0, x1, x2, x3, x4, x5, x6
-    real :: tstart, tstop, time, T, dt, rho!, NA
-    real :: fr, dfrdt, dfrdd, rr, drrdd
-    type(proc_ptr) :: func(7)
-
-    real, external :: rate_png
+    ! densities, time range, temperature
+    ! total density, constant density outside of loop
+    ! variables for rates : fr, dfrdt etc...
+    ! save funcs from ratelib to list 
+    real(8) :: n0, n1, n2, n3, n4, n5, n6
+    real(8) :: tstart, tstop, time, temp, dt, rho, rho_0, NA, den
+    !real(8) :: fr, dfrdt, dfrdd, rr, drrdt, drrdd
+    type(proc_ptr) :: func(8)
 
 
     ! Get storing list and steps number
-    real :: lst_nsdt(7, steps)
-    real :: lst_dt(steps)
+    real(8) :: lst_nsdt(7,steps)
+    real(8) :: lst_dt(steps)
 
     ! Make data file to store the results
     character(len=*), parameter :: OUT_FILE = "data.txt"
     integer :: fu
 
-
 !-----------------------------------------------------------------------------
     ! Initial values of ns and density
-    n0 = 0.3
-    n1 = 0.7
+    rho = 2e-31
+    NA = 6.02e23
+    den = 1/(rho*NA)
+
+    n0 = 0.15e5*den
+    n1 = 0.85e5*den
     n2 = 0
     n3 = 0
     n4 = 0
     n5 = 0
     n6 = 0
     ns = (/n0, n1, n2, n3, n4, n5, n6/)
-
-    rho = 1.
 
     ! Make a list of the rate functions from ratelib
     func(1)%ptr => rate_png
@@ -81,6 +76,7 @@ program main
     func(5)%ptr => rate_dpg
     func(6)%ptr => rate_ddn
     func(7)%ptr => rate_tpn
+    func(8)%ptr => rate_weaknp
 
     ! Id matrix:
     do i=1,7
@@ -98,90 +94,90 @@ program main
 
     ! Range of t and first dt
         ! t and dt
-    tstart = 1e-1
-    tstop = 1e2
+    tstart = 1.
+    tstop = 6e2
         
         ! get first dt
-    dt = 1e-5
+    dt = 1e-2
 
 !-----------------------------------------------------------------------------
     ! Initialise for the loop
     lst_nsdt(:,1) = ns
+    lst_dt(1) = tstart
     new_ns = ns
     A_prime = 1e5
 
-    ! Loop
-    iloop : do i=1, steps-1
-        ! Adaptative time steps and Newton-Raphson
-        whileloop : do while (sum(A_prime) > 1.)
-            dt = 0.9*dt
-            time = lst_dt(i) + dt
-            call get_T(time, T)
-            print*, T
+    rho_0 = rho
+    time = tstart
 
-            call get_rho(time, rho)
-            print*, rho
+    i = 2
+    ! Loop
+    iloop : do while (time < tstop)
+        ! Adaptative time steps
+        whileloop : do while (sum(A_prime) > 8.)
+            dt = 0.99*dt
+            time = lst_dt(i-1) + dt
+
+            call get_T(time, temp)
+
+            if (i/=2) then
+                call get_rho(time, rho, rho_0)
+            end if
 
             ! Get the reaction rates
-            do k=1, 7
-                call func(k)(T, rho, fr, dfrdt, dfrdd, rr, drr1dd)
-                lam(k) = fr
-            end do
-            !call get_lam(T9, lam, rho)
-            !print*,lam
+            call get_lam(rho, lam, temp)
 
             ! Get A and its Jacobian
             call make_A(new_ns, lam, A)
-            !A = (X/(rho*NA))*A
             call make_J(new_ns, lam, J)
-            !J = (X/(rho*NA))*J
 
-            !print*,A
-
-            ! A'(Y_i) = I-dt*J(Y_i)
+            ! A'(Y_i) = abs(I-dt*J(Y_i))
             A_prime = abs(Id - dt*J)
-            !print*, sum(A_prime), sum(dt*J)
 
+            ! Stop the iteration if dt is too small
+            if (dt<((tstop-tstart)/steps)) then
+                dt = ((tstop-tstart)/steps)
+                exit
+            end if
         end do whileloop
 
-        ! Want -A, not A
-        print *, i
-        A_min = -A
 
         ! Solve the matrix
-        call dgesv(N, NRHS, J, LDA, IPIV, A_min, LDB, INFO)
-        if (INFO == 0) then
+        call dgesv(N, NRHS, A_prime, LDA, IPIV, A, LDB, INFO)
+        if (INFO /= 0) then
             print*, "Unsolvable matrix"
             stop
         end if
 
-
         ! get d = ns_(i+1) - ns from the result, which is A
         d = A
-        print*, "here"
 
         ! new_ns is ns + d
-        new_ns = ns + d
+        new_ns = (ns + d)
+        print*, d
+        print*, new_ns
 
         ! store the results in a list for later
-        lst_nsdt(:,i+1) = new_ns
-        lst_dt(i+1) = lst_dt(i)+dt
-
-
-        ! If tstop is reached, then exit
-        if (lst_dt(i) >= tstop) then
-            exit
-            print*,"exit"
-        end if
+        lst_nsdt(:,i) = new_ns
+        lst_dt(i) = time
 
         ! reinitialise
         ns = new_ns
+        rho = rho_0
+        i = i + 1
+
+        if (i >= steps) then
+            exit
+        end if
     end do iloop
+
+    size = i
+    lst_nsdt = lst_nsdt(:, 1:size)
 
 !-----------------------------------------------------------------------------
     ! Now save this data to a text file
     open(action="write", file=OUT_FILE, newunit=fu, status="replace")
-    do i=1, steps
+    do i=1, size
         write(fu,*) lst_dt(i), lst_nsdt(:,i)
     end do
     close(fu)

@@ -1,14 +1,14 @@
 subroutine make_J(ns, lam, J)
-    real, intent(in) :: ns(7), lam(7)
-    real, intent(out) :: J(7,7)
+    real(8), intent(in) :: ns(7), lam(8)
+    real(8), intent(out) :: J(7,7)
     ! Declare the variables
-    real :: J00, J01, J02, J03, J04, J05, J06
-    real :: J10, J11, J12, J13, J14, J15, J16
-    real :: J20, J21, J22, J23, J24, J25, J26
-    real :: J30, J31, J32, J33, J34, J35, J36
-    real :: J40, J41, J42, J43, J44, J45, J46
-    real :: J50, J51, J52, J53, J54, J55, J56
-    real :: J60, J61, J62, J63, J64, J65, J66
+    real(8) :: J00, J01, J02, J03, J04, J05, J06
+    real(8) :: J10, J11, J12, J13, J14, J15, J16
+    real(8) :: J20, J21, J22, J23, J24, J25, J26
+    real(8) :: J30, J31, J32, J33, J34, J35, J36
+    real(8) :: J40, J41, J42, J43, J44, J45, J46
+    real(8) :: J50, J51, J52, J53, J54, J55, J56
+    real(8) :: J60, J61, J62, J63, J64, J65, J66
 
     ! First row
     J00 = -lam(1)*ns(2) - lam(5)*ns(3)
@@ -23,7 +23,7 @@ subroutine make_J(ns, lam, J)
 
     ! Second row
     J10 = -lam(1)*ns(2)
-    J11 = -lam(1)*ns(1) - lam(7)*ns(6)
+    J11 = -lam(1)*ns(1) - lam(7)*ns(6) - lam(8)
     J12 = lam(4)*ns(5) + 2*lam(6)*ns(3)
     J13 = 0
     J14 = lam(4)*ns(3)

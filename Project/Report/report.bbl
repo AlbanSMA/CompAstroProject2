@@ -1683,6 +1683,60 @@
       \field{title}{The {Big} {Bang} and nucleosynthesis}
       \field{year}{2008}
     \endentry
+    \entry{schramm_big-bang_1998}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=60fae5b1d0b5be4479c263c17321be62}{%
+           family={Schramm},
+           familyi={S\bibinitperiod},
+           given={David\bibnamedelima N.},
+           giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=04b069e989ac2075d5ea09e6bfafb9d6}{%
+           family={Turner},
+           familyi={T\bibinitperiod},
+           given={Michael\bibnamedelima S.},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{8c687fd52c89986456192530d6e6333f}
+      \strng{fullhash}{8c687fd52c89986456192530d6e6333f}
+      \strng{fullhashraw}{8c687fd52c89986456192530d6e6333f}
+      \strng{bibnamehash}{8c687fd52c89986456192530d6e6333f}
+      \strng{authorbibnamehash}{8c687fd52c89986456192530d6e6333f}
+      \strng{authornamehash}{8c687fd52c89986456192530d6e6333f}
+      \strng{authorfullhash}{8c687fd52c89986456192530d6e6333f}
+      \strng{authorfullhashraw}{8c687fd52c89986456192530d6e6333f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Reviews of Modern Physics}
+      \field{number}{1}
+      \field{title}{Big-bang nucleosynthesis enters the precision era}
+      \field{urlday}{29}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{volume}{70}
+      \field{year}{1998}
+      \field{urldateera}{ce}
+      \field{pages}{303\bibrangedash 318}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1103/RevModPhys.70.303
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/RevModPhys.70.303
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/RevModPhys.70.303
+      \endverb
+    \endentry
     \entry{wagoner_synthesis_1967}{article}{}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=2fbb1da911dd4a48ad8a357d4ec3ef33}{%
@@ -3410,6 +3464,60 @@
       \field{note}{Lecture slides}
       \field{title}{The {Big} {Bang} and nucleosynthesis}
       \field{year}{2008}
+    \endentry
+    \entry{schramm_big-bang_1998}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=60fae5b1d0b5be4479c263c17321be62}{%
+           family={Schramm},
+           familyi={S\bibinitperiod},
+           given={David\bibnamedelima N.},
+           giveni={D\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=04b069e989ac2075d5ea09e6bfafb9d6}{%
+           family={Turner},
+           familyi={T\bibinitperiod},
+           given={Michael\bibnamedelima S.},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{8c687fd52c89986456192530d6e6333f}
+      \strng{fullhash}{8c687fd52c89986456192530d6e6333f}
+      \strng{fullhashraw}{8c687fd52c89986456192530d6e6333f}
+      \strng{bibnamehash}{8c687fd52c89986456192530d6e6333f}
+      \strng{authorbibnamehash}{8c687fd52c89986456192530d6e6333f}
+      \strng{authornamehash}{8c687fd52c89986456192530d6e6333f}
+      \strng{authorfullhash}{8c687fd52c89986456192530d6e6333f}
+      \strng{authorfullhashraw}{8c687fd52c89986456192530d6e6333f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Reviews of Modern Physics}
+      \field{number}{1}
+      \field{title}{Big-bang nucleosynthesis enters the precision era}
+      \field{urlday}{29}
+      \field{urlmonth}{4}
+      \field{urlyear}{2026}
+      \field{volume}{70}
+      \field{year}{1998}
+      \field{urldateera}{ce}
+      \field{pages}{303\bibrangedash 318}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1103/RevModPhys.70.303
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/RevModPhys.70.303
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/RevModPhys.70.303
+      \endverb
     \endentry
     \entry{wagoner_synthesis_1967}{article}{}{}
       \name{author}{3}{}{%
